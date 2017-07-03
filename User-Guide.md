@@ -96,6 +96,8 @@ at `Downloads` and all your projects are at `workspace`
 $ nano $HOME/.bashrc
 ```
 
+_Linux Tips: `nano` is a pretty nice editor in terminal, learn and use it!_
+
 Append following text in your `$HOME/.bashrc`
 
 ```bash
