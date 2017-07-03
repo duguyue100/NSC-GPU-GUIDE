@@ -27,6 +27,10 @@ please tell admin before you do it.
 + If you want to access the machine outside of INI, then please connect INI's VPN.
 Find the Wiki to setup.
 
++ It is intended that there is no GUI on these machines. And please don't install one as it would consume GPU power for rendering.
+
++ `zsh` is awesome, but please __DON'T__ install and switch to it system wide.
+
 + We have a calendar for managing usage of GPU machines, please send your Gmail (or similar) account to `yuhuang.hu@ini.uzh.ch`.
 He will share the calendar to you.
 
@@ -66,6 +70,8 @@ The available machine names are:
 + `zucca`
 + `zpaghetti`
 + `zabaglione`
+
+For first time `*nix` user, checkout this useful [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/linux-command-line/) for commandline help.
 
 ## Setup Home
 
@@ -158,6 +164,16 @@ $ rm $HOME/Downloads/Anaconda2-4.4.0-Linux-x86_64.sh
 ```
 $ conda update --all
 ```
+
+## Use GPU for other language
+
++ For Matlab, make sure that you use the interpreter without the GUI needed.
++ For Torch 7, they have some really amazing setup script, follow the instructions.
++ For Julia, the GPU part is rather messy now, please contact admin before installing
++ For C/C++/Fortran, `nvcc` should be in the PATH by default. You can find some examples before using it.
+If you cannot compile your code, please let admin know.
++ For other languages, probably there is no complier/interpreter(s) for those language as well, please
+consult admin before proceed.
 
 ## (Optional) Install Theano
 
