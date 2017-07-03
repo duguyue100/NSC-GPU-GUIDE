@@ -41,11 +41,10 @@ The machines will be regularly updated by the administrator.
 Emails will be sent to users 1 week prior to the update if there is a scheduled
 maintenance.
 
-## Todo List
+### Planned Maintenance
 
-+ [ ] Maintenance status bar
-+ [ ] User Guide
-+ [ ] Admin Guide
++ [ ] `zucca` (from 14.04 to 16.04) (Date undefined)
++ [ ] `zpaghetti` (refresh 16.04) (Date undefined)
 
 ## Contacts
 
