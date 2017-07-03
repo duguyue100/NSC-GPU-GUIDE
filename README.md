@@ -4,10 +4,10 @@ The GPU machines are intended to help NSC Master for managing computing
 intensive applications.
 
 ## Available Machines
-+ `zucca`: `zucca.lan.ini.uzh.ch` ![ZUCCA GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg)![ZUCCA STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)
-+ `zpaghetti`: `zpaghetti.lan.ini.uzh.ch` ![ZPATHETTI GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg)
++ `zucca`: `zucca.lan.ini.uzh.ch` ![ZUCCA GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg) ![ZUCCA STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)
++ `zpaghetti`: `zpaghetti.lan.ini.uzh.ch` ![ZPATHETTI GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg) 
 ![ZPAGHETTI STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)
-+ `zabaglione`: `zabagalione.lan.ini.uzh.ch` ![ZABAGLIONE GPU](https://img.shields.io/badge/GPU-GTX%201080-%23ff0090.svg)![ZABAGLIONE STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)
++ `zabaglione`: `zabagalione.lan.ini.uzh.ch` ![ZABAGLIONE GPU](https://img.shields.io/badge/GPU-GTX%201080-%23ff0090.svg) ![ZABAGLIONE STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)
 
 ## General Instructions
 
