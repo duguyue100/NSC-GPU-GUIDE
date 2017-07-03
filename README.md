@@ -22,6 +22,14 @@ Yuhuang Hu will create an account for you if appropriate.
 
 Please follow [this](./User-Guide.md) guide after you received username and password.
 
+## Questions?
+
+If you have any questions on machine, reach to admin via email.
+
+If you have any questions on this guide, submit [issues](./issues).
+
+If you want to contribute, submit [pull request](./pulls).
+
 ## Maintenance
 
 The machines will be regularly updated by the administrator.
