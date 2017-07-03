@@ -5,6 +5,8 @@ This guide is intended for helping current and future machine administrators.
 __To future admin: DO NOT RECORD SECURITY INFO HERE.__
 
 [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
+[![CUDA Version](https://img.shields.io/badge/CUDA-8.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-5.1-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 
 ## Setup the machine
 
@@ -92,12 +94,26 @@ _Note: You can install the driver from the file that is available at the officia
 2. Install CUDA
 
 ```
-$ sh 
+$ sudo sh cuda_8.0.61_375.26_linux.run 
+$ sudo sh cuda_8.0.61.2_linux.run
 ```
 
 3. Test CUDA Installation
 
+```
+$ cd $HOME/NVIDIA_CUDA-8.0_Samples/0_Simple/matrixMul
+$ make
+$ ./matrixMul
+```
+
 4. Install cuDNN
+
+```
+$ tar -zxvf cudnn-8.0-linux-x64-v5.1.tgz
+$ cd cuda
+$ sudo cp include/* /usr/local/cuda-8.0/include/
+$ sudo cp lib64/* /usr/local/cuda-8.0/lib64/
+```
 
 ## Add User
 
