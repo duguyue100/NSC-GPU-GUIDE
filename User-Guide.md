@@ -101,7 +101,7 @@ export CUDA_ROOT=/usr/local/cuda
 2. Activate the change by:
 
 ```
-source $HOME/.bashrc
+$ source $HOME/.bashrc
 ```
 
 ## Setup Anaconda
