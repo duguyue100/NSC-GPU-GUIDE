@@ -60,7 +60,7 @@ Your data will only be there if:
 Access the machine via ssh
 
 ```
-$ ssh yourusername@machinename.lan.ini.uzh.ch
+$ ssh yourusername@machinename.url
 ```
 
 The username and password will be sent through email.
