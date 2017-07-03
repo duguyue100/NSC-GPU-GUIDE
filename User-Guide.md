@@ -35,7 +35,7 @@ Find the Wiki to setup.
 He will share the calendar to you.
 
 + You can only use the machine if you booked it. Otherwise, the current user has the
-right of terminate your program without consulting with you.
+right of terminating your program without consulting with you.
 
 + Generally, you can still do some low-cost jobs when there is someone using the machine.
 But please consult with them.
