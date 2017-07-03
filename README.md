@@ -15,7 +15,7 @@ You can request the GPU resources if you are (with priority)
 
 1. INI NSC Master student
 2. Student who is working on a project at INI
-3. INI member if you need the machine to run some job for short time.
+3. INI member if you need the machine to run some jobs for short time.
 
 Please send an email to `yuhuang.hu@ini.uzh.ch` for requesting the resource.
 Yuhuang Hu will create an account for you if appropriate.
