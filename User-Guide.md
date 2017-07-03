@@ -167,7 +167,7 @@ $ rm $HOME/Downloads/Anaconda2-4.4.0-Linux-x86_64.sh
 $ conda update --all
 ```
 
-## Use GPU for other language
+## Use GPU for other languages
 
 + For Matlab, make sure that you use the interpreter without the GUI needed.
 + For Torch 7, they have some really amazing setup script, follow the instructions.
