@@ -2,6 +2,12 @@
 
 [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
 [![Anaconda Version](https://img.shields.io/badge/Anaconda-4.4.0-orange.svg)](https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh)
+[![CUDA Version](https://img.shields.io/badge/CUDA-8.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-5.1-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/)
+[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.2.1-yellow.svg)](https://www.tensorflow.org/)
+[![Keras Version](https://img.shields.io/badge/Keras-2.0.5-yellow.svg)](https://keras.io/)
+[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.1.12-yellow.svg)](http://pytorch.org/)
 
 ## General Message
 
@@ -29,6 +35,10 @@ right of terminate your program without consulting with you.
 
 + Generally, you can still do some low-cost jobs when there is someone using the machine.
 But please consult with them.
+
++ Please do not `reboot` for no good reasons.
+
++ DO NOT UPDATE THE MACHINE VIA `sudo apt-get upgrade`
 
 + Please backup your data, experiment logs regularly. (__VERY IMPORTANT__)
 
@@ -130,7 +140,7 @@ $ rm $HOME/Downloads/Anaconda2-4.4.0-Linux-x86_64.sh
 $ conda update --all
 ```
 
-## Install Theano
+## (Optional) Install Theano
 
 1. Install Theano by
 
@@ -162,7 +172,7 @@ root = /usr/local/cuda
 
 Save and exit, you should be all set.
 
-## Install TensorFlow
+## (Optional) Install TensorFlow
 
 1. Install TensorFlow by:
 
@@ -175,7 +185,7 @@ _Note: (Optional) The installation will install some packages. You could remove 
 You are all set. 
 
 
-## Install Keras
+## (Optional) Install Keras
 
 1. Install Keras by
 
@@ -219,7 +229,7 @@ If you are using Theano backend, then edit the `keras.json` as
 }
 ```
 
-## Install PyTorch
+## (Optional) Install PyTorch
 
 Install PyTorch by `conda`
 
