@@ -51,6 +51,22 @@ Your data will only be there if:
 
 + DO NOT SHARE THE ACCOUNT WITH SOMEONE ELSE, THERE ARE SECURITY LESSONS IF YOU DID SO.
 
+## Access The Machine
+
+Access the machine via ssh
+
+```
+$ ssh yourusername@machinename.lan.ini.uzh.ch
+```
+
+The username and password will be sent through email.
+
+The available machine names are:
+
++ `zucca`
++ `zpaghetti`
++ `zabaglione`
+
 ## Setup Home
 
 Run following scripts
@@ -64,6 +80,9 @@ The above is preferred configuration so that all your downloaded files are
 at `Downloads` and all your projects are at `workspace`
 
 ## Setup GPU configuration
+
+[![CUDA Version](https://img.shields.io/badge/CUDA-8.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-5.1-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 
 1. Edit your `bash` configuration by:
 
@@ -142,6 +161,8 @@ $ conda update --all
 
 ## (Optional) Install Theano
 
+[![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/)
+
 1. Install Theano by
 
 ```
@@ -174,6 +195,8 @@ Save and exit, you should be all set.
 
 ## (Optional) Install TensorFlow
 
+[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.2.1-yellow.svg)](https://www.tensorflow.org/)
+
 1. Install TensorFlow by:
 
 ```
@@ -186,6 +209,8 @@ You are all set.
 
 
 ## (Optional) Install Keras
+
+[![Keras Version](https://img.shields.io/badge/Keras-2.0.5-yellow.svg)](https://keras.io/)
 
 1. Install Keras by
 
@@ -231,6 +256,8 @@ If you are using Theano backend, then edit the `keras.json` as
 
 ## (Optional) Install PyTorch
 
+[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.1.12-yellow.svg)](http://pytorch.org/)
+
 Install PyTorch by `conda`
 
 ```
@@ -239,7 +266,7 @@ $ conda install pytorch torchvision cuda80 -c soumith
 
 _Note: Install with caution as there are some failures in installation_
 
-## TODO
+## Contacts
 
-+ [ ] Possible install script for automating this process
-+ [ ] Status badges
+Yuhuang Hu  
+Email: yuhuang.hu@ini.uzh.ch
