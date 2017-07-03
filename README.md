@@ -4,11 +4,15 @@ The GPU machines are intended to help NSC Master for managing computing
 intensive applications.
 
 ## Available Machines
-+ `zucca`: `zucca.lan.ini.uzh.ch` ![ZUCCA GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg) ![ZUCCA STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)
++ `zucca`: `zucca.lan.ini.uzh.ch` ![ZUCCA GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg) ![ZUCCA STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg) [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-14.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
+
 + `zpaghetti`: `zpaghetti.lan.ini.uzh.ch` ![ZPATHETTI GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg) 
-![ZPAGHETTI STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)
-+ `zabaglione`: `zabagalione.lan.ini.uzh.ch` ![ZABAGLIONE GPU](https://img.shields.io/badge/GPU-GTX%201080-%23ff0090.svg) ![ZABAGLIONE STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)
-+ `zampone`: `zampone.lan.ini.uzh.ch`
+![ZPAGHETTI STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg) [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
+
++ `zabaglione`: `zabagalione.lan.ini.uzh.ch` ![ZABAGLIONE GPU](https://img.shields.io/badge/GPU-GTX%201080-%23ff0090.svg) ![ZABAGLIONE STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg) [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
+
++ `zampone`: `zampone.lan.ini.uzh.ch`![ZAMPONE GPU](https://img.shields.io/badge/GPU-GTX%201080-%23ff0090.svg) ![ZAMPONE STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg) [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
+
 
 ## General Instructions
 
