@@ -70,11 +70,45 @@ Reboot the machine after installation.
     $ sudo apt-get install oracle-java8-installer
     ```
 
+Reboot the machine after installation.
+
 ## Install CUDA
 
 1. Install NVIDIA Graphics Driver
 
 ```
+$ sudo add-apt-repository ppa:graphics-drivers/ppa
+$ sudo apt-get update
+$ sudo apt-get nvidia-375
 ```
 
-[TODO] Comment on UEFI secure booting
+Reboot machine after installation.
+
+_Note: There are number of reasons that the driver installation doesn't works, you need to debug it case-by-case._
+
+_Note: You can install the driver from the file that is available at the official website. However play with caution._
+
+
+2. Install CUDA
+
+```
+$ sh 
+```
+
+3. Test CUDA Installation
+
+4. Install cuDNN
+
+## Add User
+
+There are multiple ways of adding users, here is the easiest one I found:
+
+```
+$ sudo adduser username
+$ sudo adduser username sudo
+```
+
+# Contacts
+
+Yuhuang Hu  
+Email: yuhuang.hu@ini.uzh.ch
