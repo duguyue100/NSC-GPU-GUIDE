@@ -26,9 +26,9 @@ Please follow [this](./User-Guide.md) guide after you received username and pass
 
 If you have any questions on machine, reach to admin via email.
 
-If you have any questions on this guide, submit [issues](./issues).
+If you have any questions on this guide, submit [issues](https://github.com/duguyue100/NSC-GPU-GUIDE/issues).
 
-If you want to contribute, submit [pull request](./pulls).
+If you want to contribute, submit [pull request](https://github.com/duguyue100/NSC-GPU-GUIDE/pulls).
 
 ## Maintenance
 
