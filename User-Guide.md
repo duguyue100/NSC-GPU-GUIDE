@@ -236,10 +236,10 @@ You are all set.
 $ pip install Keras -U
 ```
 
-2. (Optional) In case you don't have `h5py` (necessary for save models)
+2. (Optional) Utilities for saving model and picture
 
 ```
-$ conda install h5py
+$ conda install h5py pydot graphviz
 ```
 
 3. Setup Keras configuration
