@@ -284,6 +284,18 @@ $ conda install pytorch torchvision cuda80 -c soumith
 
 _Note: Install with caution as there are some failures in installation_
 
+## (Optional) Install Caffe
+
+You can install Caffe with [Docker](https://www.docker.com/).
+In fact, you are suggested to do it this way as Caffe is somehow always in rapid development.
+
+Check [this page](https://github.com/BVLC/caffe/tree/master/docker) for more information.
+For using official docker:
+
+```
+$ sudo nvidia-docker run -ti bvlc/caffe:gpu caffe --version
+```
+
 ## Contacts
 
 Yuhuang Hu  

@@ -85,6 +85,7 @@ Reboot the machine after installation.
 $ sudo add-apt-repository ppa:graphics-drivers/ppa
 $ sudo apt-get update
 $ sudo apt-get nvidia-375
+$ sudo apt-get nvidia-modprobe  # for nvidia-docker
 ```
 
 Reboot machine after installation.
