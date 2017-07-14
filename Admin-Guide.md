@@ -75,6 +75,12 @@ Reboot the machine after installation.
 
     Follow the guide [here](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository)
 
+    + Small utilities
+
+    ```
+    $ sudo apt-get install unzip
+    ```
+
 Reboot the machine after installation.
 
 ## Install CUDA
