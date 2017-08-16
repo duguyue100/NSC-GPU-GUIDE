@@ -38,7 +38,7 @@ He will share the calendar to you.
 right of terminating your program without consulting with you.
 
 + Generally, you can still do some low-cost jobs when there is someone using the machine.
-But please consult with them.
+But please consult with the person.
 
 + Please do not `reboot` for no good reasons.
 
