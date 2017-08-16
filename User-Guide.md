@@ -70,6 +70,7 @@ The available machine names are:
 + `zucca`
 + `zpaghetti`
 + `zabaglione`
++ `zampone`
 
 For first time `*nix` user, checkout this useful [cheat sheet](https://www.cheatography.com/davechild/cheat-sheets/linux-command-line/) for commandline help.
 
