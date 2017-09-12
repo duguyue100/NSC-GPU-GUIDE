@@ -166,6 +166,7 @@ setup_anaconda()
 clean_env()
 {
     rm -rf $RES_DIR
+    $CONDA_BIN/conda clean -a -y  # clean up the cache
 }
 
 config_dl()
