@@ -3,11 +3,15 @@
 [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
 [![Anaconda Version](https://img.shields.io/badge/Anaconda-4.4.0-orange.svg)](https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh)
 [![CUDA Version](https://img.shields.io/badge/CUDA-8.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![cuDNN Version](https://img.shields.io/badge/cuDNN-5.1-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-6.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 [![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/)
-[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.2.1-yellow.svg)](https://www.tensorflow.org/)
-[![Keras Version](https://img.shields.io/badge/Keras-2.0.5-yellow.svg)](https://keras.io/)
-[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.1.12-yellow.svg)](http://pytorch.org/)
+[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.3-yellow.svg)](https://www.tensorflow.org/)
+[![Keras Version](https://img.shields.io/badge/Keras-2.0.8-yellow.svg)](https://keras.io/)
+[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.2.0-yellow.svg)](http://pytorch.org/)
+[![Chainer Version](https://img.shields.io/badge/Chainer-2.1.0-yellow.svg)](http://chainer.org/)
+[![DMLC Version](https://img.shields.io/badge/xgboost-0.6.0-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
+[![DMLC Version](https://img.shields.io/badge/mxnet-0.11.0-yellow.svg)](https://mxnet.incubator.apache.org/)
+
 
 ## General Message
 
@@ -86,204 +90,10 @@ $ mkdir $HOME/workspace
 The above is preferred configuration so that all your downloaded files are
 at `Downloads` and all your projects are at `workspace`
 
-## Setup GPU configuration
+## Setup Deep Learning Environment
 
-[![CUDA Version](https://img.shields.io/badge/CUDA-8.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![cuDNN Version](https://img.shields.io/badge/cuDNN-5.1-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+We have develop a working setup script for setting up your DL environment.
 
-1. Edit your `bash` configuration by:
-
-```
-$ nano $HOME/.bashrc
-```
-
-_Linux Tips: `nano` is a pretty nice editor in terminal, learn and use it!_
-
-Append following text in your `$HOME/.bashrc`
-
-```bash
-export PATH=$PATH:/usr/local/cuda/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
-export CUDA_ROOT=/usr/local/cuda
-```
-
-2. Activate the change by:
-
-```
-$ source $HOME/.bashrc
-```
-
-## Setup Anaconda
-
-[![Anaconda Version](https://img.shields.io/badge/Anaconda-4.4.0-orange.svg)](https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh)
-
-1. Download Anaconda
-
-```
-$ cd $HOME/Downloads
-$ wget https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh
-```
-
-2. Install Anaconda
-
-```
-$ bash Anaconda2-4.4.0-Linux-x86_64.sh
-```
-
-Follow the instructions and install Anaconda at your `HOME` folder (the default one).
-Remember to type `yes` if Anaconda asks
-
-```
-Do you wish the installer to prepend the Anaconda2 install location
-to PATH in your /home/username/.bashrc ? [yes|no]
-```
-
-3. Activate Anaconda by:
-
-```
-$ source $HOME/.bashrc
-```
-
-If success, you should see this message after running `python`
-
-```
-$ python
-Python 2.7.13 |Anaconda custom (64-bit)| (default, Dec 20 2016, 23:09:15)
-[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
-Anaconda is brought to you by Continuum Analytics.
-Please check out: http://continuum.io/thanks and https://anaconda.org
->>>
-```
-
-4. Remove Anaconda installer after installation
-
-```
-$ rm $HOME/Downloads/Anaconda2-4.4.0-Linux-x86_64.sh
-```
-
-5. Update anaconda
-
-```
-$ conda update --all
-```
-
-## Use GPU for other languages
-
-+ For Matlab, make sure that you use the interpreter without the GUI needed.
-+ For Torch 7, they have some really amazing setup script, follow the instructions.
-+ For Julia, the GPU part is rather messy now, please contact admin before installing
-+ For C/C++/Fortran, `nvcc` should be in the PATH by default. You can find some examples before using it.
-If you cannot compile your code, please let admin know.
-+ For other languages, probably there is no complier/interpreter(s) for those language as well, please
-consult admin before proceed.
-
-## (Optional) Install Theano
-
-[![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/)
-
-1. Install Theano by
-
-```
-$ pip install Theano -U
-```
-
-_Note: (Optional) This command will install a recent version of numpy, you can remove conda's numpy if necessary._
-
-2. Setup `.theanorc`. This script will specify the GPU configuration
-
-```
-$ touch $HOME/.theanorc
-$ nano $HOME/.theanorc
-```
-
-Append following contents in the file
-```
-[global]
-floatX = float32
-device = gpu0
-
-[nvcc]
-fastmath = True
-
-[cuda]
-root = /usr/local/cuda
-```
-
-Save and exit, you should be all set.
-
-## (Optional) Install TensorFlow
-
-[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.2.1-yellow.svg)](https://www.tensorflow.org/)
-
-1. Install TensorFlow by:
-
-```
-$ pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.2.1-cp27-none-linux_x86_64.whl
-```
-
-_Note: (Optional) The installation will install some packages. You could remove conda ones if necessary._
-
-You are all set. 
-
-
-## (Optional) Install Keras
-
-[![Keras Version](https://img.shields.io/badge/Keras-2.0.5-yellow.svg)](https://keras.io/)
-
-1. Install Keras by
-
-```
-$ pip install Keras -U
-```
-
-2. (Optional) Utilities for saving model and picture
-
-```
-$ conda install h5py pydot graphviz
-```
-
-3. Setup Keras configuration
-
-```
-$ mkdir $HOME/.keras
-$ touch $HOME/.keras/keras.json
-```
-
-If you are using TensorFlow backend (recommended), then edit `keras.json` as
-
-
-```json
-{
-    "image_data_format": "channels_last",
-    "epsilon": 1e-07,
-    "floatx": "float32",
-    "backend": "tensorflow"
-}
-```
-
-If you are using Theano backend, then edit the `keras.json` as 
-
-```json
-{
-    "image_data_format": "channels_first",
-    "epsilon": 1e-07,
-    "floatx": "float32",
-    "backend": "theano"
-}
-```
-
-## (Optional) Install PyTorch
-
-[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.1.12-yellow.svg)](http://pytorch.org/)
-
-Install PyTorch by `conda`
-
-```
-$ conda install pytorch torchvision cuda80 -c soumith
-```
-
-_Note: Install with caution as there are some failures in installation_
 
 ## (Optional) Install Caffe
 

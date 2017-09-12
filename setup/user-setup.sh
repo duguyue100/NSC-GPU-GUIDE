@@ -285,6 +285,12 @@ config_dl()
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
     fi
 
+    # TensorBoard
+    if [ $ENABLE_TENSORFLOW = false ]; then
+        $CONDA_BIN/pip install tensorflow-tensorboard
+    fi
+    $CONDA_BIN/pip install tensorboard-pytorch
+
     # Caffe (no python)
     # Currently not supported
 
