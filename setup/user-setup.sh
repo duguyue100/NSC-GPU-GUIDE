@@ -7,14 +7,17 @@ RES_DIR=$USER_DIR/nsc_res
 ENABLE_GPU=true
 
 ENABLE_PYTHON=false
-PYTHON_VERSION=3
+PYTHON_VERSION=2
 
 ENABLE_DL_ALL=false
-
 ENABLE_TENSORFLOW=false
 ENABLE_THEANO=false
 ENABLE_PYTORCH=false
 ENABLE_KERAS=false
+ENABLE_DMLC=false
+ENABLE_CAFFE=false
+ENABLE_CAFFE2=false
+ENABLE_TORCH=false
 
 # get anaconda link
 if [ $ENABLE_PYTHON = true]; then
@@ -83,6 +86,10 @@ config_dl()
         ENABLE_THEANO=true
         ENABLE_PYTORCH=true
         ENABLE_KERAS=true
+        ENABLE_DMLC=true
+        ENABLE_CAFFE=true
+        ENABLE_CAFFE2=true
+        ENABLE_TORCH=true
     fi
 
     # turn off some options if there is no python support
@@ -91,6 +98,7 @@ config_dl()
         ENABLE_THEANO=false
         ENABLE_PYTORCH=false
         ENABLE_KERAS=false
+        ENABLE_DMLC=false
     fi
 
     # common setup for python 2
@@ -127,6 +135,13 @@ config_dl()
         pip install -U Keras
     fi
 
+    # DMLC
+
+    # Caffe
+
+    # Caffe2
+    
+    # Torch
 }
 
 # Workflow for setting up
