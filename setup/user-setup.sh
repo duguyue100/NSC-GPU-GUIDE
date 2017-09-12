@@ -5,7 +5,7 @@ USER_DIR=$(cd $(dirname $0); pwd)
 RES_DIR=$USER_DIR/nsc_res
 INSTALL_OPT="yes"
 ENABLE_INSTALL=false
-DEBUG_MODE=true
+DEBUG_MODE=false
 
 ENABLE_GPU=true
 
