@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# This script is to setup the desired the DL environment.
+# Author: Yuhuang Hu
+# Email : yuhuang.hu@ini.uzh.ch
+
 # Environment and parameters
 USER_DIR=$(cd $(dirname $0); pwd)
 RES_DIR=$USER_DIR/res
@@ -160,6 +164,8 @@ print_config()
 
 setup_env()
 {
+    cp $HOME/.bashrc $HOME/.bashrc.dl.bak
+    echo -e "${RED}[MESSAGE] Current .bashrc is backed up at $HOME/.bashrc.dl.bak${COLOR_END}"
     echo -e "${CYAN}[MESSAGE] Setting up installation environment...${COLOR_END}"
     if [ ! -d "$RES_DIR" ]; then
         mkdir $RES_DIR

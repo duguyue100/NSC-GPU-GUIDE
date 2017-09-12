@@ -4,7 +4,7 @@
 ENABLE_GPU=true
 
 # True if you need Python, support from Anaconda
-ENABLE_PYTHON=false
+ENABLE_PYTHON=true
 # 2 is Python 2.7, 3 is Python 3.6
 PYTHON_VERSION=2
 
@@ -12,15 +12,15 @@ PYTHON_VERSION=2
 ENABLE_DL_ALL=false
 
 # true to install TensorFlow
-ENABLE_TENSORFLOW=false
+ENABLE_TENSORFLOW=true
 # true to install Theano
 ENABLE_THEANO=false
 # true to install PyTorch
-ENABLE_PYTORCH=false
+ENABLE_PYTORCH=true
 # true to install Chainer
 ENABLE_CHAINER=false
 # true to install Keras
-ENABLE_KERAS=false
+ENABLE_KERAS=true
 # true to install DMLC packages (xgboost, mxnet)
 ENABLE_DMLC=false
 # true to install Caffe (without Python)
