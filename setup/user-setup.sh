@@ -270,6 +270,8 @@ if [ $DEBUG_MODE = false ]; then
 
         # cleaning environment
         clean_env
+
+        echo "[MESSAGE] Selected Installation Completed."
     else
         echo "[MESSAGE] Installation interrupted."
     fi
