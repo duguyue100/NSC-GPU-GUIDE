@@ -17,6 +17,7 @@ ENABLE_TENSORFLOW=false
 ENABLE_THEANO=false
 ENABLE_PYTORCH=false
 ENABLE_KERAS=false
+ENABLE_CHAINER=false
 ENABLE_DMLC=false
 ENABLE_CAFFE=false
 ENABLE_CAFFE2=false
@@ -37,6 +38,7 @@ if [ $ENABLE_DL_ALL = true ]; then
     ENABLE_THEANO=true
     ENABLE_PYTORCH=true
     ENABLE_KERAS=true
+    ENABLE_CHAINER=true
     ENABLE_DMLC=true
     ENABLE_CAFFE=true
     ENABLE_CAFFE2=true
@@ -49,6 +51,7 @@ if [ $ENABLE_PYTHON = false ]; then
     ENABLE_THEANO=false
     ENABLE_PYTORCH=false
     ENABLE_KERAS=false
+    ENABLE_CHAINER=false
     ENABLE_DMLC=false
 fi
 
@@ -103,10 +106,12 @@ print_config()
     echo "[MESSAGE] TensorFlow                      : $ENABLE_TENSORFLOW"
     echo "[MESSAGE] Theano                          : $ENABLE_THEANO"
     echo "[MESSAGE] PyTorch                         : $ENABLE_PYTORCH"
+    echo "[MESSAGE] Keras                           : $ENABLE_KERAS"
+    echo "[MESSAGE] Chainer                         : $ENABLE_CHAINER"
     echo "[MESSAGE] DMLC (including xgboost, mxnet) : $ENABLE_DMLC"
-    echo "[MESSAGE] Caffe                           : $ENABLE_CAFFE"
-    echo "[MESSAGE] Caffe2                          : $ENABLE_CAFFE2"
-    echo "[MESSAGE] Torch                           : $ENABLE_TORCH"
+    echo "[MESSAGE] Caffe (not supported yet)       : $ENABLE_CAFFE"
+    echo "[MESSAGE] Caffe2 (not supported yet)      : $ENABLE_CAFFE2"
+    echo "[MESSAGE] Torch (not supported yet)       : $ENABLE_TORCH"
 
     # waiting for installation
     echo "[MESSAGE] Do you confirm the installation options? (yes/no) [$INSTALL_OPT]"
@@ -208,6 +213,16 @@ config_dl()
         echo "[MESSAGE] Keras Installed."
     fi
 
+    # Chainer
+    if [ $ENABLE_CHAINER = true ]; then
+        echo "[MESSAGE] Installing Chainer..."
+        pip install -U chainer
+        if [ $ENABLE_GPU = true ]; then
+            pip install -U cupy
+        fi
+        echo "[MESSAGE] Chainer Installed."
+    fi
+
     # DMLC
     if [ $ENABLE_DMLC = true ]; then
         echo "[MESSAGE] Installing DMLC packages (xgboost, mxnet)..."
@@ -220,10 +235,13 @@ config_dl()
     fi
 
     # Caffe (no python)
+    # Currently not supported
 
     # Caffe2 (no python)
+    # Currently not supported
     
     # Torch
+    # Currently not supported
 }
 
 # Work flow for setting up

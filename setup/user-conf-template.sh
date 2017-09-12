@@ -17,6 +17,8 @@ ENABLE_TENSORFLOW=false
 ENABLE_THEANO=false
 # true to install PyTorch
 ENABLE_PYTORCH=false
+# true to install Chainer
+ENABLE_CHAINER=false
 # true to install Keras
 ENABLE_KERAS=false
 # true to install DMLC packages (xgboost, mxnet)
