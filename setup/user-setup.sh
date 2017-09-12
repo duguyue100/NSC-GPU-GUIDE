@@ -3,6 +3,7 @@
 # Environment and parameters
 USER_DIR=$(cd $(dirname $0); pwd)
 RES_DIR=$USER_DIR/res
+CONDA_BIN=$HOME/anaconda/bin
 INSTALL_OPT="yes"
 ENABLE_INSTALL=false
 DEBUG_MODE=false
@@ -156,12 +157,10 @@ setup_anaconda()
     # setup path
     echo 'export PATH="$HOME/anaconda/bin:$PATH"' >> $HOME/.bashrc
 
-    source $HOME/.bashrc
-
     # update conda
-    conda update --all -y
-    conda install -y libgcc
-    conda clean -a -y  # clean up the cache
+    $CONDA_BIN/conda update --all -y
+    $CONDA_BIN/conda install -y libgcc
+    $CONDA_BIN/conda clean -a -y  # clean up the cache
 }
 
 clean_env()
@@ -175,9 +174,9 @@ config_dl()
     if [ $ENABLE_PYTHON = true ]; then
         echo "[MESSAGE] Installing common packages for Python..."
         if [ $PYTHON_VERSION = 2 ]; then
-            conda install -y h5py pydot graphviz
+            $CONDA_BIN/conda install -y h5py pydot graphviz
         elif [ $PYTHON_VERSION = 3]; then
-            conda install -y h5py
+            $CONDA_BIN/conda install -y h5py
         fi
         echo "[MESSAGE] Common packages for Python Installed..."
     fi
@@ -185,14 +184,14 @@ config_dl()
     # tensorflow
     if [ $ENABLE_TENSORFLOW = true ]; then
         echo "[MESSAGE] Installing TensorFlow..." 
-        pip install -U $TENSORFLOW_URL
+        $CONDA_BIN/pip install -U $TENSORFLOW_URL
         echo "[MESSAGE] TensorFlow Installed."
     fi
 
     # theano
     if [ $ENABLE_THEANO = true ]; then
         echo "[MESSAGE] Installing Theano..."
-        conda install -y theano
+        $CONDA_BIN/conda install -y theano
         if [ $ENABLE_GPU = true ]; then
             cp $USER_DIR/extras/theano/theanorc-gpu $HOME/.theanorc
         else
@@ -205,9 +204,9 @@ config_dl()
     if [ $ENABLE_PYTORCH = true ]; then
         echo "[MESSAGE] Installing PyTorch..."
         if [ $ENABLE_GPU = true ]; then
-            conda install -y pytorch torchvision cuda80 -c soumith
+            $CONDA_BIN/conda install -y pytorch torchvision cuda80 -c soumith
         elif [ $ENABLE_GPU = false ]; then
-            conda install -y pytorch torchvision -c soumith
+            $CONDA_BIN/conda install -y pytorch torchvision -c soumith
         fi
         echo "[MESSAGE] PyTorch installed."
     fi
@@ -215,7 +214,7 @@ config_dl()
     # Keras
     if [ $ENABLE_KERAS = true ]; then
         echo "[MESSAGE] Installing Keras..."
-        pip install -U Keras
+        $CONDA_BIN/pip install -U Keras
         mkdir $HOME/.keras
         cp $USER_DIR/extras/keras/keras-tensorflow.json $HOME/.keras/keras.json
         echo "[MESSAGE] Keras Installed."
@@ -224,9 +223,9 @@ config_dl()
     # Chainer
     if [ $ENABLE_CHAINER = true ]; then
         echo "[MESSAGE] Installing Chainer..."
-        pip install -U chainer
+        $CONDA_BIN/pip install -U chainer
         if [ $ENABLE_GPU = true ]; then
-            pip install -U cupy
+            $CONDA_BIN/pip install -U cupy
         fi
         echo "[MESSAGE] Chainer Installed."
     fi
@@ -235,9 +234,9 @@ config_dl()
     if [ $ENABLE_DMLC = true ]; then
         echo "[MESSAGE] Installing DMLC packages (xgboost, mxnet)..."
         if [ $ENABLE_GPU = true ]; then
-            pip install xgboost mxnet-cu80==0.11.0
+            $CONDA_BIN/pip install xgboost mxnet-cu80==0.11.0
         else
-            pip install xgboost mxnet==0.11.0.rc3
+            $CONDA_BIN/pip install xgboost mxnet==0.11.0.rc3
         fi
         echo "[MESSAGE] DMLC packages Installed."
     fi
