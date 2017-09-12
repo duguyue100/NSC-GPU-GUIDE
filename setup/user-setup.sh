@@ -5,6 +5,7 @@ USER_DIR=$(cd $(dirname $0); pwd)
 RES_DIR=$USER_DIR/nsc_res
 INSTALL_OPT="yes"
 ENABLE_INSTALL=false
+DEBUG_MODE=true
 
 ENABLE_GPU=true
 
@@ -20,6 +21,9 @@ ENABLE_DMLC=false
 ENABLE_CAFFE=false
 ENABLE_CAFFE2=false
 ENABLE_TORCH=false
+
+# load configuration
+"$USER_DIR/user-conf.sh"
 
 # turn on all options if true
 if [ $ENABLE_DL_ALL = true ]; then
@@ -200,22 +204,26 @@ config_dl()
 }
 
 # Workflow for setting up
-print_config
+if [ $DEBUG_MODE = false ]; then
+    print_config
 
-if [ $ENABLE_INSTALL = true ]; then
-    # setting up resource folder
-    setup_en
+    if [ $ENABLE_INSTALL = true ]; then
+        # setting up resource folder
+        setup_en
 
-    # setting up anaconda
-    if [ $ENABLE_PYTHON = true ]; then
-        setup_anaconda
+        # setting up anaconda
+        if [ $ENABLE_PYTHON = true ]; then
+            setup_anaconda
+        fi
+
+        # setting up environment for deep learning
+        config_dl
+
+        # cleaning environment
+        clean_env
+    else
+        echo "[MESSAGE] Installation interrupted."
     fi
-
-    # setting up environment for deep learning
-    config_dl
-
-    # cleaning environment
-    clean_env
 else
-    echo "[MESSAGE] Installation interrupted."
+    print_config
 fi
