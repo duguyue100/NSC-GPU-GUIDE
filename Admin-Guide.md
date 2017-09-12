@@ -6,7 +6,7 @@ __To future admin: DO NOT RECORD SECURITY INFO HERE.__
 
 [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
 [![CUDA Version](https://img.shields.io/badge/CUDA-8.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![cuDNN Version](https://img.shields.io/badge/cuDNN-5.1-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-6.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 
 ## Setup the machine
 
@@ -90,8 +90,8 @@ Reboot the machine after installation.
 ```
 $ sudo add-apt-repository ppa:graphics-drivers/ppa
 $ sudo apt-get update
-$ sudo apt-get nvidia-375
-$ sudo apt-get nvidia-modprobe  # for nvidia-docker
+$ sudo apt-get install nvidia-384
+$ sudo apt-get install nvidia-modprobe  # for nvidia-docker
 ```
 
 Reboot machine after installation.
@@ -119,7 +119,7 @@ $ ./matrixMul
 4. Install cuDNN
 
 ```
-$ tar -zxvf cudnn-8.0-linux-x64-v5.1.tgz
+$ tar -zxvf cudnn-8.0-linux-x64-v6.0.tgz
 $ cd cuda
 $ sudo cp include/* /usr/local/cuda-8.0/include/
 $ sudo cp lib64/* /usr/local/cuda-8.0/lib64/
@@ -131,7 +131,6 @@ There are multiple ways of adding users, here is the easiest one I found:
 
 ```
 $ sudo adduser username
-$ sudo adduser username sudo
 ```
 
 # Contacts

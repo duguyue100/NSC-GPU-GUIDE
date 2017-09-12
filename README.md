@@ -46,12 +46,6 @@ maintenance.
 + [ ] `zucca` (from 14.04 to 16.04) (Date undefined)
 + [ ] `zpaghetti` (refresh 16.04) (Date undefined)
 
-### Docker support
-
-For the long run, we are gonna replace current installation procedures with docker.
-Then you can immediately work on your idea.
-So far the plan is to setup a docker image that has full support of mainstream DL softwares.
-
 ## Contacts
 
 Yuhuang Hu
