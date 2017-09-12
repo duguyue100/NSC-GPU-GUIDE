@@ -93,6 +93,70 @@ at `Downloads` and all your projects are at `workspace`
 ## Setup Deep Learning Environment
 
 We have develop a working setup script for setting up your DL environment.
+This script is a runnable script 
+
+_This script currently does not support Caffe, Caffe2 and Torch. We will work on them. And will be available in near future._
+
+1. Clone the repo
+
+    ```
+    $ git clone https://github.com/duguyue100/NSC-GPU-GUIDE
+    $ cd NSC-GPU-GUIDE/setup
+    $ cp user-conf-template.sh user-conf.sh
+    ```
+2. Configure the template. The default configuration is a GPU setup with Python 2. TensorFlow, PyTorch and Keras are installed. The configuration file is as follows:
+
+    ```bash
+    #!/usr/bin/env bash
+
+    # True if NVIDIA CUDA is installed.
+    ENABLE_GPU=true
+
+    # True if you need Python, support from Anaconda
+    ENABLE_PYTHON=true
+    # 2 is Python 2.7, 3 is Python 3.6
+    PYTHON_VERSION=2
+
+    # True if you want to install all libraries locally
+    ENABLE_DL_ALL=false
+
+    # true to install TensorFlow
+    ENABLE_TENSORFLOW=true
+    # true to install Theano
+    ENABLE_THEANO=false
+    # true to install PyTorch
+    ENABLE_PYTORCH=true
+    # true to install Chainer
+    ENABLE_CHAINER=false
+    # true to install Keras
+    ENABLE_KERAS=true
+    # true to install DMLC packages (xgboost, mxnet)
+    ENABLE_DMLC=false
+    # true to install Caffe (without Python)
+    ENABLE_CAFFE=false
+    # true to install Caffe2 (without Python)
+    ENABLE_CAFFE2=false
+    # true to install Torch 7
+    ENABLE_TORCH=false
+    ```
+
+    You can customize this file that fits you needs. _For example, if you want to install all the libraries, just change `ENABLE_DL_ALL` to `true`._
+
+3. Run the installation script!
+
+    ```
+    $ ./user-setup.sh
+    ```
+
+4. The installation will take about 10min, grab a coffee and wait!
+
+5. Source the new bash profile
+
+    ```
+    $ source $HOME/.bashrc
+    ```
+
+    And you are all set!
 
 
 ## (Optional) Install Caffe
