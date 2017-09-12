@@ -23,7 +23,13 @@ ENABLE_CAFFE2=false
 ENABLE_TORCH=false
 
 # load configuration
-"$USER_DIR/user-conf.sh"
+if [ -f "$USER_DIR/user-conf.sh" ]; then
+    echo "[MESSAGE] Loading installation configuration."
+    source "$USER_DIR/user-conf.sh"
+    echo "[MESSAGE] Install configuration loaded."
+else
+    echo "[MESSAGE] No install configuration found. Use default settings."
+fi
 
 # turn on all options if true
 if [ $ENABLE_DL_ALL = true ]; then
@@ -38,7 +44,7 @@ if [ $ENABLE_DL_ALL = true ]; then
 fi
 
 # turn off some options if there is no python support
-if [ $ENABLE_PYTHON = false]; then
+if [ $ENABLE_PYTHON = false ]; then
     ENABLE_TENSORFLOW=false
     ENABLE_THEANO=false
     ENABLE_PYTORCH=false
@@ -47,30 +53,30 @@ if [ $ENABLE_PYTHON = false]; then
 fi
 
 # get anaconda link
-if [ $ENABLE_PYTHON = true]; then
-    if [ $PYTHON_VERSION = 2]; then
+if [ $ENABLE_PYTHON = true ]; then
+    if [ $PYTHON_VERSION = 2 ]; then
         CONDA_URL="https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh"
-    elif [ $PYTHON_VERSION = 3]; then
+    elif [ $PYTHON_VERSION = 3 ]; then
         CONDA_URL="https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh"
     fi
 fi
 
 # setup download link to softwares
-if [ $ENABLE_GPU = true]; then
+if [ $ENABLE_GPU = true ]; then
     # GPU options
-    if [ $ENABLE_PYTHON = true]; then
-        if [ $PYTHON_VERSION = 2]; then
+    if [ $ENABLE_PYTHON = true ]; then
+        if [ $PYTHON_VERSION = 2 ]; then
             TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.3.0-cp27-none-linux_x86_64.whl"
-        elif [ $PYTHON_VERSION = 3]; then
+        elif [ $PYTHON_VERSION = 3 ]; then
             TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.3.0-cp36-cp36m-linux_x86_64.whl"
         fi
     fi
-elif [$ENABLE_GPU = false]; then
+elif [ $ENABLE_GPU = false ]; then
     # CPU options
-    if [ $ENABLE_PYTHON = true]; then
-        if [ $PYTHON_VERSION = 2]; then
+    if [ $ENABLE_PYTHON = true ]; then
+        if [ $PYTHON_VERSION = 2 ]; then
             TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp27-none-linux_x86_64.whl"
-        elif [ $PYTHON_VERSION = 3]; then
+        elif [ $PYTHON_VERSION = 3 ]; then
             TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp36-cp36m-linux_x86_64.whl"
         fi
     fi
@@ -81,8 +87,8 @@ fi
 print_config()
 {
     echo "[MESSAGE] Install Configuration:"
-    echo "[MESSAGE] Working directory: $USER_DIR"
-    echo "[MESSAGE] Resources directory: $RES_DIR"
+    echo "[MESSAGE] Working directory    : $USER_DIR"
+    echo "[MESSAGE] Resources directory  : $RES_DIR"
     if [ $ENABLE_PYTHON = true ]; then
         echo "[MESSAGE] Python Enabled. Version: $PYTHON_VERSION"
     else
@@ -94,13 +100,13 @@ print_config()
         echo "[MESSAGE] CPU Setup."
     fi
     echo "[MESSAGE] Deep Learning Libraries to install:"
-    echo "[MESSAGE] TensorFlow: $ENABLE_TENSORFLOW"
-    echo "[MESSAGE] Theano: $ENABLE_THEANO"
-    echo "[MESSAGE] PyTorch: $ENABLE_PYTORCH"
-    echo "[MESSAGE] DMLC (including xgboost, mxnet): $ENABLE_DMLC"
-    echo "[MESSAGE] Caffe: $ENABLE_CAFFE"
-    echo "[MESSAGE] Caffe2: $ENABLE_CAFFE2"
-    echo "[MESSAGE] Torch: $ENABLE_TORCH"
+    echo "[MESSAGE] TensorFlow                      : $ENABLE_TENSORFLOW"
+    echo "[MESSAGE] Theano                          : $ENABLE_THEANO"
+    echo "[MESSAGE] PyTorch                         : $ENABLE_PYTORCH"
+    echo "[MESSAGE] DMLC (including xgboost, mxnet) : $ENABLE_DMLC"
+    echo "[MESSAGE] Caffe                           : $ENABLE_CAFFE"
+    echo "[MESSAGE] Caffe2                          : $ENABLE_CAFFE2"
+    echo "[MESSAGE] Torch                           : $ENABLE_TORCH"
 
     # waiting for installation
     echo "[MESSAGE] Do you confirm the installation options? (yes/no) [$INSTALL_OPT]"
@@ -118,7 +124,7 @@ print_config()
     }
 
     if [[ $(is_yes $input) ]]; then
-        $ENABLE_INSTALL=true 
+        ENABLE_INSTALL=true 
     fi
 }
 
@@ -226,4 +232,5 @@ if [ $DEBUG_MODE = false ]; then
     fi
 else
     print_config
+    echo "[MESSAGE] Enable Install : $ENABLE_INSTALL"
 fi
