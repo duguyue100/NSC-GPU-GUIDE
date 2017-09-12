@@ -45,4 +45,4 @@ else
     echo "[MESSAGE] Backup file not found, please restore manually."
 fi
 
-echo -e "${LIGHT_BLUE}[MESSAGE]The environment is clean!$COLOR_END}"
+echo -e "${LIGHT_BLUE}[MESSAGE]The environment is clean!${COLOR_END}"
