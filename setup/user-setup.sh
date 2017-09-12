@@ -128,7 +128,7 @@ print_config()
     fi
 }
 
-setup_en()
+setup_env()
 {
     echo "[MESSAGE] Setting up installation environment"
     if [ ! -d "$RES_DIR" ]; then
@@ -140,9 +140,10 @@ setup_anaconda()
 {
     echo "[MESSAGE] Setting up Python $PYTHON_VERSION"
     wget --quiet $CONDA_URL -O $RES_DIR/anaconda.sh
-    # install anaconda 2
-    bash $RES_DIR/anaconda.sh -b -p
-    # TODO: setup path
+    # install anaconda
+    bash $RES_DIR/anaconda.sh -b -p $HOME/anaconda
+    # setup path
+    echo 'export PATH="$HOME/anaconda/bin:$PATH"' >> $HOME/.bashrc
 
     # update conda
     conda update --all -y
@@ -179,6 +180,11 @@ config_dl()
     if [ $ENABLE_THEANO = true ]; then
         echo "[MESSAGE] Installing Theano..."
         conda install -y theano
+        if [ $ENABLE_GPU = true ]; then
+            cp $USER_DIR/extras/theano/theanorc-gpu $HOME/.theanorc
+        else
+            cp $USER_DIR/extras/theano/theanorc-cpu $HOME/.theanorc
+        fi
         echo "[MESSAGE] Theano Installed"
     fi
 
@@ -197,6 +203,8 @@ config_dl()
     if [ $ENABLE_KERAS = true ]; then
         echo "[MESSAGE] Installing Keras..."
         pip install -U Keras
+        mkdir $HOME/.keras
+        cp $USER_DIR/extras/keras/keras-tensorflow.json $HOME/.keras/keras.json
         echo "[MESSAGE] Keras Installed."
     fi
 
@@ -218,13 +226,13 @@ config_dl()
     # Torch
 }
 
-# Workflow for setting up
+# Work flow for setting up
 if [ $DEBUG_MODE = false ]; then
     print_config
 
     if [ $ENABLE_INSTALL = true ]; then
         # setting up resource folder
-        setup_en
+        setup_env
 
         # setting up anaconda
         if [ $ENABLE_PYTHON = true ]; then
