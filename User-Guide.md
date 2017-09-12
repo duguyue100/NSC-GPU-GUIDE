@@ -18,7 +18,7 @@
 __Please read this paragraph carefully before installation__
 
 + The machine is for everyone, so please do not dump big files on the machine.
-If you need to connect an external hard disk on the machine, please talk to admin.
+If you need to connect an external hard disk on the machine, please talk admin.
 
 + It is intended to have separate workspace for everyone. So please setup your own Python
 distribution (Anaconda is recommended) instead of messing with system python.
