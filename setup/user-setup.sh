@@ -10,7 +10,7 @@ RES_DIR=$USER_DIR/res
 CONDA_BIN=$HOME/anaconda/bin
 INSTALL_OPT="yes"
 ENABLE_INSTALL=false
-DEBUG_MODE=true
+DEBUG_MODE=false
 
 ENABLE_GPU=true
 
