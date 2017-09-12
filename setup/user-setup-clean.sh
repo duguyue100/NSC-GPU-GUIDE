@@ -17,6 +17,7 @@ COLOR_END='\033[0m'
 echo -e "${RED}[MESSAGE] Removing Anaconda...${COLOR_END}"
 if [ -d "$HOME/anaconda" ]; then
     rm -rf $HOME/anaconda
+    rm -rf $HOME/.conda
 fi
 
 # Remove Theano file
