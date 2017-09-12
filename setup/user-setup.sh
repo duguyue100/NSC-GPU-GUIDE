@@ -201,6 +201,15 @@ config_dl()
     fi
 
     # DMLC
+    if [ $ENABLE_DMLC = true ]; then
+        echo "[MESSAGE] Installing DMLC packages (xgboost, mxnet)..."
+        if [ $ENABLE_GPU = true ]; then
+            pip install xgboost mxnet-cu80==0.11.0
+        else
+            pip install xgboost mxnet==0.11.0.rc3
+        fi
+        echo "[MESSAGE] DMLC packages Installed."
+    fi
 
     # Caffe (no python)
 
