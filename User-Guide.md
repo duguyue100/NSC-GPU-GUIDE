@@ -159,6 +159,15 @@ _This script currently does not support Caffe, Caffe2 and Torch. We will work on
     And you are all set!
 
 
+### Reset the environment
+
+By running `user-setup-clean.sh`, you can hit the reset button of your environment.
+This is for easy re-setup and a life-saver option if you messed up the environment somehow.
+
+```
+$ ./user-setup-clean.sh
+```
+
 ## (Optional) Install Caffe
 
 You can install Caffe with [Docker](https://www.docker.com/).
