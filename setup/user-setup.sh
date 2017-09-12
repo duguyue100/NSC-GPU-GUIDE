@@ -166,7 +166,7 @@ setup_anaconda()
 
 clean_env()
 {
-    rm -rf $USER_DIR
+    rm -rf $RES_DIR
 }
 
 config_dl()
