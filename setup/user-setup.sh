@@ -230,7 +230,7 @@ config_dl()
     # theano
     if [ $ENABLE_THEANO = true ]; then
         echo "[MESSAGE] Installing Theano..."
-        $CONDA_BIN/pip install -U Theano
+        $CONDA_BIN/conda install -y theano
         if [ $ENABLE_GPU = true ]; then
             cp $USER_DIR/extras/theano/theanorc-gpu $HOME/.theanorc
         else
