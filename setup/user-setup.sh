@@ -2,7 +2,7 @@
 
 # Environment and parameters
 USER_DIR=$(cd $(dirname $0); pwd)
-RES_DIR=$USER_DIR/nsc_res
+RES_DIR=$USER_DIR/res
 INSTALL_OPT="yes"
 ENABLE_INSTALL=false
 DEBUG_MODE=false
@@ -155,6 +155,8 @@ setup_anaconda()
     bash $RES_DIR/anaconda.sh -b -p $HOME/anaconda
     # setup path
     echo 'export PATH="$HOME/anaconda/bin:$PATH"' >> $HOME/.bashrc
+
+    source $HOME/.bashrc
 
     # update conda
     conda update --all -y
