@@ -139,12 +139,18 @@ setup_env()
     if [ ! -d "$RES_DIR" ]; then
         mkdir $RES_DIR
     fi
+
+    if [ $ENABLE_GPU = true ]; then
+        echo 'export PATH=$PATH:/usr/local/cuda/bin' >> $HOME/.bashrc
+        echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64' >> $HOME/.bashrc
+        echo 'export CUDA_ROOT=/usr/local/cuda' >> $HOME/.bashrc
+    fi
 }
 
 setup_anaconda()
 {
     echo "[MESSAGE] Setting up Python $PYTHON_VERSION"
-    wget --quiet $CONDA_URL -O $RES_DIR/anaconda.sh
+    wget $CONDA_URL -O $RES_DIR/anaconda.sh
     # install anaconda
     bash $RES_DIR/anaconda.sh -b -p $HOME/anaconda
     # setup path
