@@ -23,7 +23,7 @@ If you need to connect an external hard disk on the machine, please talk admin.
 + It is intended to have separate workspace for everyone. So please setup your own Python
 distribution (Anaconda is recommended) instead of messing with system python.
 
-+ Yes, you are granted with `sudo` access.
++ No, you are not granted with `sudo` access.
 
 + If you are gonna install anything with `sudo`, or edit protected system folder (e.g. `/usr`, `/etc`, etc),
 please tell admin before you do it.
