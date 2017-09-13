@@ -289,7 +289,9 @@ config_dl()
     if [ $ENABLE_TENSORFLOW = false ]; then
         $CONDA_BIN/pip install tensorflow-tensorboard
     fi
-    $CONDA_BIN/pip install tensorboard-pytorch
+    if [ $ENABLE_PYTORCH = true ]; then
+        $CONDA_BIN/pip install tensorboard-pytorch
+    fi
 
     # Caffe (no python)
     # Currently not supported
