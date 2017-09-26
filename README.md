@@ -4,7 +4,7 @@ The GPU machines are intended to help NSC Master for managing computing
 intensive applications.
 
 ## Available Machines
-+ `zucca`: ![ZUCCA GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg) ![ZUCCA STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg) [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-14.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
++ `zucca`: ![ZUCCA GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg) ![ZUCCA STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg) [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
 
 + `zpaghetti`: ![ZPATHETTI GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg) 
 ![ZPAGHETTI STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg) [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
