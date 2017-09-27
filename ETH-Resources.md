@@ -52,6 +52,8 @@ CIFEX is a file sharing service by ETHz, access it from [here](https://cifex.eth
 You have 100GB file limit. And it's very fast.
 I transferred about 400GB to Canada in few hours.
 
+__The file stays at the server for a week.__
+
 
 ## Contacts
 
