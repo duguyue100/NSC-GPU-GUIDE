@@ -16,10 +16,10 @@ intensive applications.
 
 ## General Instructions
 
-You can request the GPU resources if you are (with priority)
+You can request the GPU resources if you are an (with priority)
 
 1. INI NSC Master student
-2. Student who is working on a project at INI
+2. Master student who is working on a project at INI
 3. INI member if you need the machine to run some jobs for short time.
 
 Please send an email to `yuhuang.hu@ini.uzh.ch` for requesting the resource.
@@ -29,7 +29,7 @@ Please follow [this](./User-Guide.md) guide after you received username and pass
 
 ## Questions?
 
-If you have any questions on machine, reach to admin via email.
+If you have any questions on machine, reach admin via email.
 
 If you have any questions on this guide, submit [issues](https://github.com/duguyue100/NSC-GPU-GUIDE/issues).
 
@@ -49,5 +49,5 @@ maintenance.
 
 ## Contacts
 
-Yuhuang Hu
+Yuhuang Hu  
 Email: yuhuang.hu@ini.uzh.ch
