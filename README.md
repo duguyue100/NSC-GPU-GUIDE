@@ -45,7 +45,7 @@ maintenance.
 
 + [x] `zucca` (from 14.04 to 16.04) (2017-09-26)
 + [ ] `zpaghetti` (refresh 16.04) (Date undefined)
-+ [ ] `zabaglione` (small network problem) (2017-10-03)
++ [x] `zabaglione` (small network problem) (2017-10-03)
 
 ## Contacts
 
