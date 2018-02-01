@@ -43,9 +43,13 @@ maintenance.
 
 ### Planned Maintenance
 
-+ [x] `zucca` (from 14.04 to 16.04) (2017-09-26)
-+ [ ] `zpaghetti` (refresh 16.04) (Date undefined)
-+ [x] `zabaglione` (small network problem) (2017-10-03)
+__NOTE:__ We are looking for the right moment for us to do a major update so that user can enjoy the latest
+softwares.
+
++ [ ] `zucca` (New support for 16.04 and CUDA 9) (Date undefined)
++ [ ] `zpaghetti` (New support for 16.04 and CUDA 9) (Date undefined)
++ [ ] `zabaglione` (New support for 16.04 and CUDA 9) (Date undefined)
++ [ ] `zampone` (New support for 16.04 and CUDA 9) (Date undefined)
 
 ## Contacts
 
