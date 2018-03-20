@@ -6,7 +6,7 @@ intensive applications.
 ## Available Machines
 
 |Machine Name|GPU Spec|Status|System Version|
-|:----------:|:-------|:----:|:------------:|
+|:----------:|:------:|:----:|:------------:|
 |`zucca`|![ZUCCA GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg)|![ZUCCA STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)|[![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)|
 |`zpaghetti`|![ZPATHETTI GPU](https://img.shields.io/badge/GPU-TITAN%20X-%23ff0090.svg)|![ZPAGHETTI STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)|[![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)|
 |`zabaglione`|![ZABAGLIONE GPU](https://img.shields.io/badge/GPU-GTX%201080-%23ff0090.svg)|![ZABAGLIONE STATUS](https://img.shields.io/badge/STATUS-ON-brightgreen.svg)|[![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)|
