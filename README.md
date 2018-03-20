@@ -20,7 +20,7 @@ You can request the GPU resources if you are an (with priority)
 
 1. INI NSC Master student
 2. Master student who is working on a project at INI
-3. INI member if you need the machine to run some jobs for short time.
+3. INI member if you need the machine to run some jobs for a short time.
 
 Please send an email to `yuhuang.hu@ini.uzh.ch` for requesting the resource.
 Yuhuang Hu will create an account for you if appropriate.
@@ -46,10 +46,10 @@ maintenance.
 __NOTE:__ We are looking for the right moment for us to do a major update so that user can enjoy the latest
 softwares.
 
-+ [ ] `zucca` (New support for 16.04 and CUDA 9) (Date undefined)
-+ [ ] `zpaghetti` (New support for 16.04 and CUDA 9) (Date undefined)
-+ [ ] `zabaglione` (New support for 16.04 and CUDA 9) (Date undefined)
-+ [ ] `zampone` (New support for 16.04 and CUDA 9) (Date undefined)
++ [ ] `zucca` (New support for 16.04 and CUDA 9) (2018-03-25)
++ [ ] `zpaghetti` (New support for 16.04 and CUDA 9) (2018-03-25)
++ [ ] `zabaglione` (New support for 16.04 and CUDA 9) (2018-03-25)
++ [ ] `zampone` (New support for 16.04 and CUDA 9) (2018-03-25)
 
 ## Contacts
 
