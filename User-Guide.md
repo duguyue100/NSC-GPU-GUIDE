@@ -18,22 +18,20 @@
 __Please read this paragraph carefully before installation__
 
 + The machine is for everyone, so please do not dump big files on the machine.
-If you need to connect an external hard disk on the machine, please talk admin.
+If you need to connect an external hard disk on the machine, please talk to Yuhuang Hu.
 
 + It is intended to have separate workspace for everyone. So please setup your own Python
-distribution (Anaconda is recommended) instead of messing with system python.
+distribution (Anaconda is recommended) instead of messing with the system python.
 
 + No, you are not granted with `sudo` access.
 
 + If you are gonna install anything with `sudo`, or edit protected system folder (e.g. `/usr`, `/etc`, etc),
-please tell admin before you do it.
+please tell Yuhuang before you do it.
 
 + If you want to access the machine outside of INI, then please connect INI's VPN.
 Find the Wiki to setup.
 
 + It is intended that there is no GUI on these machines. And please don't install one as it would consume GPU power for rendering.
-
-+ `zsh` is awesome, but please __DON'T__ install and switch to it system wide.
 
 + We have a calendar for managing usage of GPU machines, please send your Gmail (or similar) account to `yuhuang.hu@ini.uzh.ch`.
 He will share the calendar to you.
