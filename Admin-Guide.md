@@ -5,8 +5,8 @@ This guide is intended for helping current and future machine administrators.
 __To future admin: DO NOT RECORD SECURITY INFO HERE.__
 
 [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
-[![CUDA Version](https://img.shields.io/badge/CUDA-8.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![cuDNN Version](https://img.shields.io/badge/cuDNN-6.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![CUDA Version](https://img.shields.io/badge/CUDA-9.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-7.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 
 ## Setup the machine
 
@@ -90,7 +90,7 @@ Reboot the machine after installation.
 ```
 $ sudo add-apt-repository ppa:graphics-drivers/ppa
 $ sudo apt-get update
-$ sudo apt-get install nvidia-384
+$ sudo apt-get install nvidia-390
 $ sudo apt-get install nvidia-modprobe  # for nvidia-docker
 ```
 
@@ -104,14 +104,15 @@ _Note: You can install the driver from the file that is available at the officia
 2. Install CUDA
 
 ```
-$ sudo sh cuda_8.0.61_375.26_linux.run 
-$ sudo sh cuda_8.0.61.2_linux.run
+$ sudo sh cuda_9.0.176_384.81_linux.run 
+$ sudo sh cuda_9.0.176.1_linux.run
+$ sudo sh cuda_9.0.176.2_linux.run
 ```
 
 3. Test CUDA Installation
 
 ```
-$ cd $HOME/NVIDIA_CUDA-8.0_Samples/0_Simple/matrixMul
+$ cd $HOME/NVIDIA_CUDA-9.0_Samples/0_Simple/matrixMul
 $ make
 $ ./matrixMul
 ```
@@ -119,10 +120,10 @@ $ ./matrixMul
 4. Install cuDNN
 
 ```
-$ tar -zxvf cudnn-8.0-linux-x64-v6.0.tgz
+$ tar -zxvf cudnn-9.0-linux-x64-v7.tgz
 $ cd cuda
-$ sudo cp include/* /usr/local/cuda-8.0/include/
-$ sudo cp lib64/* /usr/local/cuda-8.0/lib64/
+$ sudo cp include/* /usr/local/cuda-9.0/include/
+$ sudo cp lib64/* /usr/local/cuda-9.0/lib64/
 ```
 
 ## Add User
