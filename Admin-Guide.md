@@ -75,10 +75,11 @@ Reboot the machine after installation.
 
     Follow the guide [here](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository)
 
-    + Small utilities
+    + Small utilities (optional)
 
     ```
     $ sudo apt-get install unzip
+    $ sudo apt-get install librsync-dev rdiff-backup
     ```
 
 Reboot the machine after installation.
