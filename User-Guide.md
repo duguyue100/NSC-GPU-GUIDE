@@ -1,16 +1,16 @@
 # Registered User Guide
 
 [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
-[![Anaconda Version](https://img.shields.io/badge/Anaconda-4.4.0-orange.svg)](https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh)
-[![CUDA Version](https://img.shields.io/badge/CUDA-8.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![cuDNN Version](https://img.shields.io/badge/cuDNN-6.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/)
-[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.3-yellow.svg)](https://www.tensorflow.org/)
-[![Keras Version](https://img.shields.io/badge/Keras-2.0.8-yellow.svg)](https://keras.io/)
-[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.2.0-yellow.svg)](http://pytorch.org/)
-[![Chainer Version](https://img.shields.io/badge/Chainer-2.1.0-yellow.svg)](http://chainer.org/)
-[![DMLC Version](https://img.shields.io/badge/xgboost-0.6.0-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
-[![DMLC Version](https://img.shields.io/badge/mxnet-0.11.0-yellow.svg)](https://mxnet.incubator.apache.org/)
+[![Anaconda Version](https://img.shields.io/badge/Anaconda-5.1.0-orange.svg)](https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh)
+[![CUDA Version](https://img.shields.io/badge/CUDA-9.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-7.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+<!-- [![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/) -->
+[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.6-yellow.svg)](https://www.tensorflow.org/)
+[![Keras Version](https://img.shields.io/badge/Keras-2.1.5-yellow.svg)](https://keras.io/)
+[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.3.1-yellow.svg)](http://pytorch.org/)
+[![Chainer Version](https://img.shields.io/badge/Chainer-3.5.0-yellow.svg)](http://chainer.org/)
+[![DMLC Version](https://img.shields.io/badge/xgboost-0.7.0-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
+[![DMLC Version](https://img.shields.io/badge/mxnet-1.1.0-yellow.svg)](https://mxnet.incubator.apache.org/)
 
 
 ## General Message
@@ -122,8 +122,6 @@ _This script currently does not support Caffe, Caffe2 and Torch. We will work on
 
     # true to install TensorFlow
     ENABLE_TENSORFLOW=true
-    # true to install Theano
-    ENABLE_THEANO=false
     # true to install PyTorch
     ENABLE_PYTORCH=true
     # true to install Chainer
@@ -134,7 +132,7 @@ _This script currently does not support Caffe, Caffe2 and Torch. We will work on
     ENABLE_DMLC=false
     # true to install Caffe (without Python)
     ENABLE_CAFFE=false
-    # true to install Caffe2 (without Python)
+    # true to install Caffe2
     ENABLE_CAFFE2=false
     # true to install Torch 7
     ENABLE_TORCH=false
