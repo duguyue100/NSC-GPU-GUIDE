@@ -21,13 +21,13 @@ if [ -d "$HOME/anaconda" ]; then
 fi
 
 # Remove Theano file
-echo -e "${RED}[MESSAGE] Removing Theano files...${COLOR_END}"
-if [ -f "$HOME/.theanorc" ]; then
-    rm $HOME/.theanorc
-fi
-if [ -d "$HOME/.theano" ]; then
-    rm -rf $HOME/.theano
-fi
+# echo -e "${RED}[MESSAGE] Removing Theano files...${COLOR_END}"
+# if [ -f "$HOME/.theanorc" ]; then
+#     rm $HOME/.theanorc
+# fi
+# if [ -d "$HOME/.theano" ]; then
+#     rm -rf $HOME/.theano
+# fi
 
 # Remove Keras file
 echo -e "${RED}[MESSAGE] Removing Keras files...${COLOR_END}"

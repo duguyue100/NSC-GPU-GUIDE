@@ -13,10 +13,8 @@ ENABLE_DL_ALL=false
 
 # true to install TensorFlow
 ENABLE_TENSORFLOW=true
-# true to install Theano
-ENABLE_THEANO=false
 # true to install PyTorch
-ENABLE_PYTORCH=true
+ENABLE_PYTORCH=false
 # true to install Chainer
 ENABLE_CHAINER=false
 # true to install Keras
@@ -25,7 +23,7 @@ ENABLE_KERAS=true
 ENABLE_DMLC=false
 # true to install Caffe (without Python)
 ENABLE_CAFFE=false
-# true to install Caffe2 (without Python)
+# true to install Caffe2
 ENABLE_CAFFE2=false
 # true to install Torch 7
 ENABLE_TORCH=false

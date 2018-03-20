@@ -19,7 +19,7 @@ PYTHON_VERSION=2
 
 ENABLE_DL_ALL=false
 ENABLE_TENSORFLOW=false
-ENABLE_THEANO=false
+# ENABLE_THEANO=false
 ENABLE_PYTORCH=false
 ENABLE_KERAS=false
 ENABLE_CHAINER=false
@@ -63,7 +63,7 @@ fi
 # turn on all options if true
 if [ $ENABLE_DL_ALL = true ]; then
     ENABLE_TENSORFLOW=true
-    ENABLE_THEANO=true
+    # ENABLE_THEANO=true
     ENABLE_PYTORCH=true
     ENABLE_KERAS=true
     ENABLE_CHAINER=true
@@ -76,7 +76,7 @@ fi
 # turn off some options if there is no python support
 if [ $ENABLE_PYTHON = false ]; then
     ENABLE_TENSORFLOW=false
-    ENABLE_THEANO=false
+    # ENABLE_THEANO=false
     ENABLE_PYTORCH=false
     ENABLE_KERAS=false
     ENABLE_CHAINER=false
@@ -86,9 +86,9 @@ fi
 # get anaconda link
 if [ $ENABLE_PYTHON = true ]; then
     if [ $PYTHON_VERSION = 2 ]; then
-        CONDA_URL="https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh"
+        CONDA_URL="https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh"
     elif [ $PYTHON_VERSION = 3 ]; then
-        CONDA_URL="https://repo.continuum.io/archive/Anaconda3-4.4.0-Linux-x86_64.sh"
+        CONDA_URL="https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh"
     fi
 fi
 
@@ -97,18 +97,22 @@ if [ $ENABLE_GPU = true ]; then
     # GPU options
     if [ $ENABLE_PYTHON = true ]; then
         if [ $PYTHON_VERSION = 2 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.3.0-cp27-none-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.6.0-cp27-none-linux_x86_64.whl"
+            PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.3.1-cp27-cp27mu-linux_x86_64.whl"
         elif [ $PYTHON_VERSION = 3 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.3.0-cp36-cp36m-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.6.0-cp36-cp36m-linux_x86_64.whl"
+            PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.3.1-cp27-cp27mu-linux_x86_64.whl"
         fi
     fi
 elif [ $ENABLE_GPU = false ]; then
     # CPU options
     if [ $ENABLE_PYTHON = true ]; then
         if [ $PYTHON_VERSION = 2 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp27-none-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp27-none-linux_x86_64.whl"
+            PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.3.1-cp36-cp36m-linux_x86_64.whl"
         elif [ $PYTHON_VERSION = 3 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp36-cp36m-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp36-cp36m-linux_x86_64.whl"
+            PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux_x86_64.whl"
         fi
     fi
 fi 
@@ -132,13 +136,13 @@ print_config()
     fi
     echo -e "${RED}[MESSAGE] Deep Learning Libraries to install:${COLOR_END}"
     echo "[MESSAGE] TensorFlow                      : $ENABLE_TENSORFLOW"
-    echo "[MESSAGE] Theano                          : $ENABLE_THEANO"
+    # echo "[MESSAGE] Theano                          : $ENABLE_THEANO"
     echo "[MESSAGE] PyTorch                         : $ENABLE_PYTORCH"
     echo "[MESSAGE] Keras                           : $ENABLE_KERAS"
     echo "[MESSAGE] Chainer                         : $ENABLE_CHAINER"
     echo "[MESSAGE] DMLC (including xgboost, mxnet) : $ENABLE_DMLC"
     echo "[MESSAGE] Caffe (not supported yet)       : $ENABLE_CAFFE"
-    echo "[MESSAGE] Caffe2 (not supported yet)      : $ENABLE_CAFFE2"
+    echo "[MESSAGE] Caffe2                          : $ENABLE_CAFFE2"
     echo "[MESSAGE] Torch (not supported yet)       : $ENABLE_TORCH"
 
     # waiting for installation
@@ -228,26 +232,23 @@ config_dl()
     fi
 
     # theano
-    if [ $ENABLE_THEANO = true ]; then
-        echo "[MESSAGE] Installing Theano..."
-        $CONDA_BIN/conda install -y theano
-        if [ $ENABLE_GPU = true ]; then
-            cp $USER_DIR/extras/theano/theanorc-gpu $HOME/.theanorc
-        else
-            cp $USER_DIR/extras/theano/theanorc-cpu $HOME/.theanorc
-        fi
-        echo "[MESSAGE] Theano Installed"
-    echo -e "${RED}--------------------------------------------------${COLOR_END}"
-    fi
+    # if [ $ENABLE_THEANO = true ]; then
+    #     echo "[MESSAGE] Installing Theano..."
+    #     $CONDA_BIN/conda install -y theano
+    #     if [ $ENABLE_GPU = true ]; then
+    #         cp $USER_DIR/extras/theano/theanorc-gpu $HOME/.theanorc
+    #     else
+    #         cp $USER_DIR/extras/theano/theanorc-cpu $HOME/.theanorc
+    #     fi
+    #     echo "[MESSAGE] Theano Installed"
+    # echo -e "${RED}--------------------------------------------------${COLOR_END}"
+    # fi
 
     # pytorch
     if [ $ENABLE_PYTORCH = true ]; then
         echo "[MESSAGE] Installing PyTorch..."
-        if [ $ENABLE_GPU = true ]; then
-            $CONDA_BIN/conda install -y pytorch torchvision cuda80 -c soumith
-        elif [ $ENABLE_GPU = false ]; then
-            $CONDA_BIN/conda install -y pytorch torchvision -c soumith
-        fi
+        $CONDA_BIN/pip install $PYTORCH_URL -U
+        $CONDA_BIN/pip install torchvision -U
         echo "[MESSAGE] PyTorch installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
     fi
@@ -267,7 +268,7 @@ config_dl()
         echo "[MESSAGE] Installing Chainer..."
         $CONDA_BIN/pip install -U chainer
         if [ $ENABLE_GPU = true ]; then
-            $CONDA_BIN/pip install -U cupy
+            $CONDA_BIN/pip install -U cupy-cuda90
         fi
         echo "[MESSAGE] Chainer Installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
@@ -277,9 +278,9 @@ config_dl()
     if [ $ENABLE_DMLC = true ]; then
         echo "[MESSAGE] Installing DMLC packages (xgboost, mxnet)..."
         if [ $ENABLE_GPU = true ]; then
-            $CONDA_BIN/pip install xgboost mxnet-cu80==0.11.0
+            $CONDA_BIN/pip install xgboost mxnet-cu90 -U
         else
-            $CONDA_BIN/pip install xgboost mxnet==0.11.0.rc3
+            $CONDA_BIN/pip install xgboost mxnet -U
         fi
         echo "[MESSAGE] DMLC packages Installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
@@ -296,8 +297,18 @@ config_dl()
     # Caffe (no python)
     # Currently not supported
 
-    # Caffe2 (no python)
-    # Currently not supported
+    # Caffe2
+    if [ $ENABLE_CAFFE2 = true ]; then
+        echo "[MESSAGE] Installing Caffe2"
+        if [ $ENABLE_GPU = true ]; then
+            $CONDA_BIN/conda install -c caffe2 caffe2-cuda9.0-cudnn7
+        else
+            $CONDA_BIN/conda install -c caffe2 caffe2
+        fi
+        echo "[MESSAGE] Caffe2 Installed."
+    echo -e "${RED}--------------------------------------------------${COLOR_END}"
+    fi
+        
     
     # Torch
     # Currently not supported
