@@ -97,10 +97,10 @@ if [ $ENABLE_GPU = true ]; then
     # GPU options
     if [ $ENABLE_PYTHON = true ]; then
         if [ $PYTHON_VERSION = 2 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.6.0-cp27-none-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.7.0-cp27-none-linux_x86_64.whl"
             PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.3.1-cp27-cp27mu-linux_x86_64.whl"
         elif [ $PYTHON_VERSION = 3 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.6.0-cp36-cp36m-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.7.0-cp36-cp36m-linux_x86_64.whl"
             PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.3.1-cp27-cp27mu-linux_x86_64.whl"
         fi
     fi
@@ -108,10 +108,10 @@ elif [ $ENABLE_GPU = false ]; then
     # CPU options
     if [ $ENABLE_PYTHON = true ]; then
         if [ $PYTHON_VERSION = 2 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp27-none-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.7.0-cp27-none-linux_x86_64.whl"
             PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.3.1-cp36-cp36m-linux_x86_64.whl"
         elif [ $PYTHON_VERSION = 3 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp36-cp36m-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl"
             PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux_x86_64.whl"
         fi
     fi

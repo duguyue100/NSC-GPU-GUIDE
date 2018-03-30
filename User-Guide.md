@@ -5,7 +5,7 @@
 [![CUDA Version](https://img.shields.io/badge/CUDA-9.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 [![cuDNN Version](https://img.shields.io/badge/cuDNN-7.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 <!-- [![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/) -->
-[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.6-yellow.svg)](https://www.tensorflow.org/)
+[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.7-yellow.svg)](https://www.tensorflow.org/)
 [![Keras Version](https://img.shields.io/badge/Keras-2.1.5-yellow.svg)](https://keras.io/)
 [![PyTorch Version](https://img.shields.io/badge/PyTorch-0.3.1-yellow.svg)](http://pytorch.org/)
 [![Chainer Version](https://img.shields.io/badge/Chainer-3.5.0-yellow.svg)](http://chainer.org/)
