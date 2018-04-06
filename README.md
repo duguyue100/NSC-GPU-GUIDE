@@ -42,14 +42,6 @@ maintenance.
 
 ### Planned Maintenance
 
-__NOTE:__ We are looking for the right moment for us to do a major update so that user can enjoy the latest
-softwares.
-
-+ [ ] `zucca` (New support for 16.04 and CUDA 9) (2018-03-25)
-+ [ ] `zpaghetti` (New support for 16.04 and CUDA 9) (2018-03-25)
-+ [ ] `zabaglione` (New support for 16.04 and CUDA 9) (2018-03-25)
-+ [ ] `zampone` (New support for 16.04 and CUDA 9) (2018-03-25)
-
 ## Contacts
 
 Yuhuang Hu  
