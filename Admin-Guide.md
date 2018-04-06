@@ -112,6 +112,8 @@ $ sudo sh cuda_9.0.176.2_linux.run
 
 __NOTE__: Do not install CUDA 9.1 because the TensorFlow is built against CUDA 9.0
 
+__NOTE__: Do not install Nvidia driver again while installing CUDA because you've done the driver installation in the previous step.
+
 3. Test CUDA Installation
 
 ```
