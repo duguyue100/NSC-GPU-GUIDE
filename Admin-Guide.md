@@ -110,6 +110,8 @@ $ sudo sh cuda_9.0.176.1_linux.run
 $ sudo sh cuda_9.0.176.2_linux.run
 ```
 
+__NOTE__: Do not install CUDA 9.1 because the TensorFlow is built against CUDA 9.0
+
 3. Test CUDA Installation
 
 ```
