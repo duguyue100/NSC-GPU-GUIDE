@@ -71,7 +71,7 @@ Reboot the machine after installation.
     $ sudo apt-get update
     $ sudo apt-get install oracle-java8-installer
     ```
-    + Docker Support
+    + Docker Support (only for test on servers). Docker is a runtime container system.
 
     Follow the guide [here](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository)
 
