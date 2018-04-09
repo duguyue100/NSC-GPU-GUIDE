@@ -126,6 +126,8 @@ $ ./matrixMul
 
 4. Install cuDNN
 
+See https://developer.nvidia.com/rdp/form/cudnn-download-survey . Membership required for download.
+
 ```
 $ tar -zxvf cudnn-9.0-linux-x64-v7.tgz
 $ cd cuda
