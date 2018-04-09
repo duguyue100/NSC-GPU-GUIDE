@@ -71,11 +71,11 @@ Reboot the machine after installation.
     $ sudo apt-get update
     $ sudo apt-get install oracle-java8-installer
     ```
-    + Docker Support (only for test on servers). Docker is a runtime container system.
+    + (Optional) Docker Support (only for special purposes on servers). Docker is a runtime container system.
 
     Follow the guide [here](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository)
 
-    + Small utilities (optional)
+    + (Optional) Small utilities
 
     ```
     $ sudo apt-get install unzip
@@ -104,7 +104,7 @@ _Note: You can install the driver from the file that is available at the officia
 
 2. Install CUDA
 
-Download ubuntu runfiles from https://developer.nvidia.com/cuda-90-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=runfilelocal
+Download ubuntu runfiles from [this link](https://developer.nvidia.com/cuda-90-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=runfilelocal)
 
 ```
 $ sudo sh cuda_9.0.176_384.81_linux.run 
@@ -126,7 +126,7 @@ $ ./matrixMul
 
 4. Install cuDNN
 
-See https://developer.nvidia.com/rdp/form/cudnn-download-survey . Membership required for download.
+See [this link](https://developer.nvidia.com/rdp/form/cudnn-download-survey). Membership required for download.
 
 ```
 $ tar -zxvf cudnn-9.0-linux-x64-v7.tgz
