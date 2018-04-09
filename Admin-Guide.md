@@ -104,6 +104,8 @@ _Note: You can install the driver from the file that is available at the officia
 
 2. Install CUDA
 
+Download ubuntu runfiles from https://developer.nvidia.com/cuda-90-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=runfilelocal
+
 ```
 $ sudo sh cuda_9.0.176_384.81_linux.run 
 $ sudo sh cuda_9.0.176.1_linux.run
