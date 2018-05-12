@@ -5,11 +5,11 @@
 [![CUDA Version](https://img.shields.io/badge/CUDA-9.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 [![cuDNN Version](https://img.shields.io/badge/cuDNN-7.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 <!-- [![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/) -->
-[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.7-yellow.svg)](https://www.tensorflow.org/)
+[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.8-yellow.svg)](https://www.tensorflow.org/)
 [![Keras Version](https://img.shields.io/badge/Keras-2.1.5-yellow.svg)](https://keras.io/)
-[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.3.1-yellow.svg)](http://pytorch.org/)
-[![Chainer Version](https://img.shields.io/badge/Chainer-3.5.0-yellow.svg)](http://chainer.org/)
-[![DMLC Version](https://img.shields.io/badge/xgboost-0.7.0-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
+[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.4.0-yellow.svg)](http://pytorch.org/)
+[![Chainer Version](https://img.shields.io/badge/Chainer-4.0.0-yellow.svg)](http://chainer.org/)
+[![DMLC Version](https://img.shields.io/badge/xgboost-0.71-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
 [![DMLC Version](https://img.shields.io/badge/mxnet-1.1.0-yellow.svg)](https://mxnet.incubator.apache.org/)
 
 
@@ -128,7 +128,7 @@ _This script currently does not support Caffe, Caffe2 and Torch. We will work on
     ENABLE_KERAS=true
     # true to install DMLC packages (xgboost, mxnet)
     ENABLE_DMLC=false
-    # true to install Caffe (without Python)
+    # true to install Caffe
     ENABLE_CAFFE=false
     # true to install Caffe2
     ENABLE_CAFFE2=false
@@ -162,18 +162,6 @@ This is for easy re-setup and a life-saver option if you messed up the environme
 
 ```
 $ ./user-setup-clean.sh
-```
-
-## (Optional) Install Caffe
-
-You can install Caffe with [Docker](https://www.docker.com/).
-In fact, you are suggested to do it this way as Caffe is somehow always in rapid development.
-
-Check [this page](https://github.com/BVLC/caffe/tree/master/docker) for more information.
-For using official docker:
-
-```
-$ sudo nvidia-docker run -ti bvlc/caffe:gpu caffe --version
 ```
 
 ## Contacts

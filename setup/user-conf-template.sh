@@ -21,7 +21,7 @@ ENABLE_CHAINER=false
 ENABLE_KERAS=true
 # true to install DMLC packages (xgboost, mxnet)
 ENABLE_DMLC=false
-# true to install Caffe (without Python)
+# true to install Caffe
 ENABLE_CAFFE=false
 # true to install Caffe2
 ENABLE_CAFFE2=false
