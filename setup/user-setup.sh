@@ -97,22 +97,22 @@ if [ $ENABLE_GPU = true ]; then
     # GPU options
     if [ $ENABLE_PYTHON = true ]; then
         if [ $PYTHON_VERSION = 2 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.7.0-cp27-none-linux_x86_64.whl"
-            PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.3.1-cp27-cp27mu-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.8.0-cp27-none-linux_x86_64.whl"
+            PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.4.0-cp27-cp27mu-linux_x86_64.whl"
         elif [ $PYTHON_VERSION = 3 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.7.0-cp36-cp36m-linux_x86_64.whl"
-            PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.3.1-cp27-cp27mu-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.8.0-cp36-cp36m-linux_x86_64.whl"
+            PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.4.0-cp36-cp36m-linux_x86_64.whl"
         fi
     fi
 elif [ $ENABLE_GPU = false ]; then
     # CPU options
     if [ $ENABLE_PYTHON = true ]; then
         if [ $PYTHON_VERSION = 2 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.7.0-cp27-none-linux_x86_64.whl"
-            PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.3.1-cp36-cp36m-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.8.0-cp27-none-linux_x86_64.whl"
+            PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.4.0-cp27-cp27mu-linux_x86_64.whl"
         elif [ $PYTHON_VERSION = 3 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl"
-            PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux_x86_64.whl"
+            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.8.0-cp36-cp36m-linux_x86_64.whl"
+            PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl"
         fi
     fi
 fi 
@@ -141,7 +141,7 @@ print_config()
     echo "[MESSAGE] Keras                           : $ENABLE_KERAS"
     echo "[MESSAGE] Chainer                         : $ENABLE_CHAINER"
     echo "[MESSAGE] DMLC (including xgboost, mxnet) : $ENABLE_DMLC"
-    echo "[MESSAGE] Caffe (not supported yet)       : $ENABLE_CAFFE"
+    echo "[MESSAGE] Caffe                           : $ENABLE_CAFFE"
     echo "[MESSAGE] Caffe2                          : $ENABLE_CAFFE2"
     echo "[MESSAGE] Torch (not supported yet)       : $ENABLE_TORCH"
 
@@ -294,8 +294,13 @@ config_dl()
         $CONDA_BIN/pip install tensorboard-pytorch
     fi
 
-    # Caffe (no python)
     # Currently not supported
+    if [ $ENABLE_CAFFE = true ]; then
+        echo "[MESSAGE] Installing Caffe"
+        $CONDA_BIN/conda install -c intel caffe 
+        echo "[MESSAGE] Caffe installed."
+    echo -e "${RED}--------------------------------------------------${COLOR_END}"
+    fi
 
     # Caffe2
     if [ $ENABLE_CAFFE2 = true ]; then
