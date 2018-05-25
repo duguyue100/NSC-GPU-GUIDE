@@ -216,7 +216,7 @@ config_dl()
         echo "[MESSAGE] Installing common packages for Python..."
         if [ $PYTHON_VERSION = 2 ]; then
             $CONDA_BIN/conda install -y h5py pydot graphviz
-        elif [ $PYTHON_VERSION = 3]; then
+        elif [ $PYTHON_VERSION = 3 ]; then
             $CONDA_BIN/conda install -y h5py
         fi
         echo "[MESSAGE] Common packages for Python Installed..."
