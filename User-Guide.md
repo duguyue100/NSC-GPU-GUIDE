@@ -5,12 +5,12 @@
 [![CUDA Version](https://img.shields.io/badge/CUDA-9.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 [![cuDNN Version](https://img.shields.io/badge/cuDNN-7.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 <!-- [![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/) -->
-[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.8-yellow.svg)](https://www.tensorflow.org/)
-[![Keras Version](https://img.shields.io/badge/Keras-2.1.5-yellow.svg)](https://keras.io/)
-[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.4.0-yellow.svg)](http://pytorch.org/)
-[![Chainer Version](https://img.shields.io/badge/Chainer-4.0.0-yellow.svg)](http://chainer.org/)
-[![DMLC Version](https://img.shields.io/badge/xgboost-0.71-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
-[![DMLC Version](https://img.shields.io/badge/mxnet-1.1.0-yellow.svg)](https://mxnet.incubator.apache.org/)
+[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.12-yellow.svg)](https://www.tensorflow.org/)
+[![Keras Version](https://img.shields.io/badge/Keras-2.2.4-yellow.svg)](https://keras.io/)
+[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.4.1-yellow.svg)](http://pytorch.org/)
+[![Chainer Version](https://img.shields.io/badge/Chainer-5.0.0-yellow.svg)](http://chainer.org/)
+[![DMLC Version](https://img.shields.io/badge/xgboost-0.81-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
+[![DMLC Version](https://img.shields.io/badge/mxnet-1.3.0-yellow.svg)](https://mxnet.incubator.apache.org/)
 
 
 ## General Message

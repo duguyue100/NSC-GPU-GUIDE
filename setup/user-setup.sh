@@ -96,24 +96,12 @@ fi
 if [ $ENABLE_GPU = true ]; then
     # GPU options
     if [ $ENABLE_PYTHON = true ]; then
-        if [ $PYTHON_VERSION = 2 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.8.0-cp27-none-linux_x86_64.whl"
-            PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.4.0-cp27-cp27mu-linux_x86_64.whl"
-        elif [ $PYTHON_VERSION = 3 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.8.0-cp36-cp36m-linux_x86_64.whl"
-            PYTORCH_URL="http://download.pytorch.org/whl/cu90/torch-0.4.0-cp36-cp36m-linux_x86_64.whl"
-        fi
+        TENSORFLOW_URL="tensorflow-gpu"
     fi
 elif [ $ENABLE_GPU = false ]; then
     # CPU options
     if [ $ENABLE_PYTHON = true ]; then
-        if [ $PYTHON_VERSION = 2 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.8.0-cp27-none-linux_x86_64.whl"
-            PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.4.0-cp27-cp27mu-linux_x86_64.whl"
-        elif [ $PYTHON_VERSION = 3 ]; then
-            TENSORFLOW_URL="https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.8.0-cp36-cp36m-linux_x86_64.whl"
-            PYTORCH_URL="http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl"
-        fi
+        TENSORFLOW_URL="tensorflow"
     fi
 fi 
 
@@ -247,7 +235,7 @@ config_dl()
     # pytorch
     if [ $ENABLE_PYTORCH = true ]; then
         echo "[MESSAGE] Installing PyTorch..."
-        $CONDA_BIN/pip install $PYTORCH_URL -U
+        $CONDA_BIN/pip install torch -U
         $CONDA_BIN/pip install torchvision -U
         echo "[MESSAGE] PyTorch installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
