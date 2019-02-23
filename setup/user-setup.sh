@@ -75,7 +75,7 @@ if [ $ENABLE_PYTHON = false ]; then
     ENABLE_DMLC=false
 fi
 
-# get anaconda link
+# get miniconda link
 if [ $ENABLE_PYTHON = true ]; then
     if [ $PYTHON_VERSION = 2 ]; then
         CONDA_URL="https://repo.anaconda.com/miniconda/Miniconda2-4.5.12-Linux-x86_64.sh"
@@ -131,6 +131,7 @@ print_config()
     fi
     if [ $ENABLE_GPU = true ]; then
         echo "[MESSAGE] GPU Setup."
+        echo "[MESSAGE] CUDA VERSTION: $CUDA_VERSION"
     else
         echo "[MESSAGE] CPU Setup."
     fi
@@ -297,9 +298,9 @@ if [ $DEBUG_MODE = false ]; then
         # setting up resource folder
         setup_env
 
-        # setting up anaconda
+        # setting up miniconda
         if [ $ENABLE_PYTHON = true ]; then
-            setup_anaconda
+            setup_miniconda
         fi
 
         # setting up environment for deep learning
