@@ -6,7 +6,8 @@ __To future admin: DO NOT RECORD SECURITY INFO HERE.__
 
 [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
 [![CUDA Version](https://img.shields.io/badge/CUDA-9.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![cuDNN Version](https://img.shields.io/badge/cuDNN-7.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![CUDA Version](https://img.shields.io/badge/CUDA-10.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-7.5-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 
 ## Setup the machine
 
@@ -80,6 +81,7 @@ Reboot the machine after installation.
     ```
     $ sudo apt-get install unzip
     $ sudo apt-get install librsync-dev rdiff-backup
+    $ sudo apt install exfat-fuse exfat-utils
     ```
 
 Reboot the machine after installation.
@@ -91,7 +93,7 @@ Reboot the machine after installation.
 ```
 $ sudo add-apt-repository ppa:graphics-drivers/ppa
 $ sudo apt-get update
-$ sudo apt-get install nvidia-390
+$ sudo apt-get install nvidia-415
 $ sudo apt-get install nvidia-modprobe  # for nvidia-docker
 ```
 
@@ -102,19 +104,27 @@ _Note: There are number of reasons that the driver installation doesn't works, y
 _Note: You can install the driver from the file that is available at the official website. However play with caution._
 
 
-2. Install CUDA
+2. Install CUDA 9 Support (SUPPORT WILL BE ENDED BY FALL, 2019) 
 
-Download ubuntu runfiles from [this link](https://developer.nvidia.com/cuda-90-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=runfilelocal)
+    Download ubuntu runfiles from [this link](https://developer.nvidia.com/cuda-90-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=runfilelocal)
 
-```
-$ sudo sh cuda_9.0.176_384.81_linux.run 
-$ sudo sh cuda_9.0.176.1_linux.run
-$ sudo sh cuda_9.0.176.2_linux.run
-```
+    ```
+    $ sudo sh cuda_9.0.176_384.81_linux.run 
+    $ sudo sh cuda_9.0.176.1_linux.run
+    $ sudo sh cuda_9.0.176.2_linux.run
+    $ sudo sh cuda_9.0.176.3_linux.run
+    $ sudo sh cuda_9.0.176.4_linux.run
+    ```
 
-__NOTE__: Do not install CUDA 9.1 because the TensorFlow is built against CUDA 9.0
+    __NOTE__: Do not install Nvidia driver again while installing CUDA because you've done the driver installation in the previous step.
 
-__NOTE__: Do not install Nvidia driver again while installing CUDA because you've done the driver installation in the previous step.
+3. Install CUDA 10 Support (WILL BECOME DEFAULT BY FALL, 2019)
+
+    Download run file at [here](https://developer.nvidia.com/cuda-downloads)
+
+    ```
+    $ sudo sh cuda_10.0.130_410.48_linux.run
+    ```
 
 3. Test CUDA Installation
 
@@ -129,8 +139,10 @@ $ ./matrixMul
 See [this link](https://developer.nvidia.com/rdp/form/cudnn-download-survey). Membership required for download.
 
 ```
-$ tar -zxvf cudnn-9.0-linux-x64-v7.tgz
+$ tar -zxvf cudnn-9.0-linux-x64-v7.5.0.56.tgz  # for cuda 9
+$ tar -zxvf cudnn-10.0-linux-x64-v7.5.0.56.tgz  # for cuda 10
 $ cd cuda
+# the directory is different for CUDA 9 and 10
 $ sudo cp include/* /usr/local/cuda-9.0/include/
 $ sudo cp lib64/* /usr/local/cuda-9.0/lib64/
 ```
