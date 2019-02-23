@@ -13,10 +13,10 @@ CYAN='\033[0;36m'
 PURPLE='\033[0;35m'
 COLOR_END='\033[0m'
 
-# Remove Anaconda
-echo -e "${RED}[MESSAGE] Removing Anaconda...${COLOR_END}"
-if [ -d "$HOME/anaconda" ]; then
-    rm -rf $HOME/anaconda
+# Remove Miniconda
+echo -e "${RED}[MESSAGE] Removing Miniconda...${COLOR_END}"
+if [ -d "$HOME/miniconda" ]; then
+    rm -rf $HOME/miniconda
     rm -rf $HOME/.conda
 fi
 
