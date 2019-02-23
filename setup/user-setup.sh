@@ -7,26 +7,23 @@
 # Environment and parameters
 USER_DIR=$(cd $(dirname $0); pwd)
 RES_DIR=$USER_DIR/res
-CONDA_BIN=$HOME/anaconda/bin
+CONDA_BIN=$HOME/miniconda/bin
 INSTALL_OPT="yes"
 ENABLE_INSTALL=false
 DEBUG_MODE=false
 
 ENABLE_GPU=true
+CUDA_VERSION=9
 
 ENABLE_PYTHON=false
 PYTHON_VERSION=2
 
 ENABLE_DL_ALL=false
 ENABLE_TENSORFLOW=false
-# ENABLE_THEANO=false
 ENABLE_PYTORCH=false
 ENABLE_KERAS=false
 ENABLE_CHAINER=false
 ENABLE_DMLC=false
-ENABLE_CAFFE=false
-ENABLE_CAFFE2=false
-ENABLE_TORCH=false
 
 # Color Profile
 RED='\033[0;31m'
@@ -63,20 +60,15 @@ fi
 # turn on all options if true
 if [ $ENABLE_DL_ALL = true ]; then
     ENABLE_TENSORFLOW=true
-    # ENABLE_THEANO=true
     ENABLE_PYTORCH=true
     ENABLE_KERAS=true
     ENABLE_CHAINER=true
     ENABLE_DMLC=true
-    ENABLE_CAFFE=true
-    ENABLE_CAFFE2=true
-    ENABLE_TORCH=true
 fi
 
 # turn off some options if there is no python support
 if [ $ENABLE_PYTHON = false ]; then
     ENABLE_TENSORFLOW=false
-    # ENABLE_THEANO=false
     ENABLE_PYTORCH=false
     ENABLE_KERAS=false
     ENABLE_CHAINER=false
@@ -86,9 +78,9 @@ fi
 # get anaconda link
 if [ $ENABLE_PYTHON = true ]; then
     if [ $PYTHON_VERSION = 2 ]; then
-        CONDA_URL="https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh"
+        CONDA_URL="https://repo.anaconda.com/miniconda/Miniconda2-4.5.12-Linux-x86_64.sh"
     elif [ $PYTHON_VERSION = 3 ]; then
-        CONDA_URL="https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh"
+        CONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-4.5.4-Linux-x86_64.sh"
     fi
 fi
 
@@ -97,11 +89,31 @@ if [ $ENABLE_GPU = true ]; then
     # GPU options
     if [ $ENABLE_PYTHON = true ]; then
         TENSORFLOW_URL="tensorflow-gpu"
+
+        if [ $CUDA_VERSION = 9 ]; then
+            PYTORCH_URL="torch"
+            CUPY_URL="cupy-cuda90"
+            MXNET_URL="mxnet-cu90"
+        elif [ $CUDA_VERSION = 10 ]; then
+            if [ $PYTHON_VERSION = 2 ]; then
+                PYTORCH_URL="https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp27-cp27mu-linux_x86_64.whl"
+            elif [ $PYTHON_VERSION = 3 ]; then
+                PYTORCH_URL="https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp36-cp36m-linux_x86_64.whl"
+            fi
+            CUPY_URL="cupy-cuda100"
+            MXNET_URL="mxnet-cu100"
+        fi
     fi
 elif [ $ENABLE_GPU = false ]; then
     # CPU options
     if [ $ENABLE_PYTHON = true ]; then
         TENSORFLOW_URL="tensorflow"
+
+        if [ $PYTHON_VERSION = 2 ]; then
+            PYTORCH_URL="https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp27-cp27mu-linux_x86_64.whl"
+        elif [ $PYTHON_VERSION = 3 ]; then
+            PYTORCH_URL="https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp36-cp36m-linux_x86_64.whl"
+        fi
     fi
 fi 
 
@@ -124,14 +136,10 @@ print_config()
     fi
     echo -e "${RED}[MESSAGE] Deep Learning Libraries to install:${COLOR_END}"
     echo "[MESSAGE] TensorFlow                      : $ENABLE_TENSORFLOW"
-    # echo "[MESSAGE] Theano                          : $ENABLE_THEANO"
     echo "[MESSAGE] PyTorch                         : $ENABLE_PYTORCH"
     echo "[MESSAGE] Keras                           : $ENABLE_KERAS"
     echo "[MESSAGE] Chainer                         : $ENABLE_CHAINER"
     echo "[MESSAGE] DMLC (including xgboost, mxnet) : $ENABLE_DMLC"
-    echo "[MESSAGE] Caffe                           : $ENABLE_CAFFE"
-    echo "[MESSAGE] Caffe2                          : $ENABLE_CAFFE2"
-    echo "[MESSAGE] Torch (not supported yet)       : $ENABLE_TORCH"
 
     # waiting for installation
     echo "[MESSAGE] Do you confirm the installation options? (yes/no) [$INSTALL_OPT]"
@@ -164,22 +172,28 @@ setup_env()
     fi
 
     if [ $ENABLE_GPU = true ]; then
-        echo 'export PATH=$PATH:/usr/local/cuda/bin' >> $HOME/.bashrc
-        echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64' >> $HOME/.bashrc
-        echo 'export CUDA_ROOT=/usr/local/cuda' >> $HOME/.bashrc
+        if [ $CUDA_VERSION = 9 ]; then
+            echo 'export PATH=$PATH:/usr/local/cuda/bin' >> $HOME/.bashrc
+            echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64' >> $HOME/.bashrc
+            echo 'export CUDA_ROOT=/usr/local/cuda' >> $HOME/.bashrc
+        elif [ $CUDA_VERSION = 10 ]; then
+            echo 'export PATH=$PATH:/usr/local/cuda-10.0/bin' >> $HOME/.bashrc
+            echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64' >> $HOME/.bashrc
+            echo 'export CUDA_ROOT=/usr/local/cuda-10.0' >> $HOME/.bashrc
+        fi
     fi
     echo -e "${CYAN}[MESSAGE] Installation environment setup completed.${COLOR_END}"
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
 }
 
-setup_anaconda()
+setup_miniconda()
 {
     echo -e "${CYAN}[MESSAGE] Setting up Python $PYTHON_VERSION ...${COLOR_END}"
-    wget $CONDA_URL -O $RES_DIR/anaconda.sh
-    # install anaconda
-    bash $RES_DIR/anaconda.sh -b -p $HOME/anaconda
+    wget $CONDA_URL -O $RES_DIR/miniconda.sh
+    # install miniconda
+    bash $RES_DIR/miniconda.sh -b -p $HOME/miniconda
     # setup path
-    echo 'export PATH="$HOME/anaconda/bin:$PATH"' >> $HOME/.bashrc
+    echo 'export PATH="$HOME/miniconda/bin:$PATH"' >> $HOME/.bashrc
 
     # update conda
     $CONDA_BIN/conda update --all -y
@@ -214,29 +228,16 @@ config_dl()
     # tensorflow
     if [ $ENABLE_TENSORFLOW = true ]; then
         echo "[MESSAGE] Installing TensorFlow..." 
-        $CONDA_BIN/pip install -U $TENSORFLOW_URL
+        $CONDA_BIN/pip install $TENSORFLOW_URL
         echo "[MESSAGE] TensorFlow Installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
     fi
 
-    # theano
-    # if [ $ENABLE_THEANO = true ]; then
-    #     echo "[MESSAGE] Installing Theano..."
-    #     $CONDA_BIN/conda install -y theano
-    #     if [ $ENABLE_GPU = true ]; then
-    #         cp $USER_DIR/extras/theano/theanorc-gpu $HOME/.theanorc
-    #     else
-    #         cp $USER_DIR/extras/theano/theanorc-cpu $HOME/.theanorc
-    #     fi
-    #     echo "[MESSAGE] Theano Installed"
-    # echo -e "${RED}--------------------------------------------------${COLOR_END}"
-    # fi
-
     # pytorch
     if [ $ENABLE_PYTORCH = true ]; then
         echo "[MESSAGE] Installing PyTorch..."
-        $CONDA_BIN/pip install torch -U
-        $CONDA_BIN/pip install torchvision -U
+        $CONDA_BIN/pip install $PYTORCH_URL
+        $CONDA_BIN/pip install torchvision
         echo "[MESSAGE] PyTorch installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
     fi
@@ -244,7 +245,7 @@ config_dl()
     # Keras
     if [ $ENABLE_KERAS = true ]; then
         echo "[MESSAGE] Installing Keras..."
-        $CONDA_BIN/pip install -U Keras
+        $CONDA_BIN/pip install Keras
         mkdir $HOME/.keras
         cp $USER_DIR/extras/keras/keras-tensorflow.json $HOME/.keras/keras.json
         echo "[MESSAGE] Keras Installed."
@@ -254,9 +255,9 @@ config_dl()
     # Chainer
     if [ $ENABLE_CHAINER = true ]; then
         echo "[MESSAGE] Installing Chainer..."
-        $CONDA_BIN/pip install -U chainer
+        $CONDA_BIN/pip install chainer
         if [ $ENABLE_GPU = true ]; then
-            $CONDA_BIN/pip install -U cupy-cuda90
+            $CONDA_BIN/pip install CUPY_URL
         fi
         echo "[MESSAGE] Chainer Installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
@@ -266,9 +267,9 @@ config_dl()
     if [ $ENABLE_DMLC = true ]; then
         echo "[MESSAGE] Installing DMLC packages (xgboost, mxnet)..."
         if [ $ENABLE_GPU = true ]; then
-            $CONDA_BIN/pip install xgboost mxnet-cu90 -U
+            $CONDA_BIN/pip install xgboost MXNET_URL
         else
-            $CONDA_BIN/pip install xgboost mxnet -U
+            $CONDA_BIN/pip install xgboost mxnet
         fi
         echo "[MESSAGE] DMLC packages Installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
@@ -281,27 +282,6 @@ config_dl()
     if [ $ENABLE_PYTORCH = true ]; then
         $CONDA_BIN/pip install tensorboard-pytorch
     fi
-
-    # Currently not supported
-    if [ $ENABLE_CAFFE = true ]; then
-        echo "[MESSAGE] Installing Caffe"
-        $CONDA_BIN/conda install -c intel caffe 
-        echo "[MESSAGE] Caffe installed."
-    echo -e "${RED}--------------------------------------------------${COLOR_END}"
-    fi
-
-    # Caffe2
-    if [ $ENABLE_CAFFE2 = true ]; then
-        echo "[MESSAGE] Installing Caffe2"
-        if [ $ENABLE_GPU = true ]; then
-            $CONDA_BIN/conda install -c caffe2 caffe2-cuda9.0-cudnn7
-        else
-            $CONDA_BIN/conda install -c caffe2 caffe2
-        fi
-        echo "[MESSAGE] Caffe2 Installed."
-    echo -e "${RED}--------------------------------------------------${COLOR_END}"
-    fi
-        
     
     # Torch
     # Currently not supported

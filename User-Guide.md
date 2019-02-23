@@ -1,16 +1,16 @@
 # Registered User Guide
 
 [![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
-[![Anaconda Version](https://img.shields.io/badge/Anaconda-5.1.0-orange.svg)](https://repo.continuum.io/archive/Anaconda2-5.1.0-Linux-x86_64.sh)
+[![Anaconda Version](https://img.shields.io/badge/Miniconda-4.5-orange.svg)](https://repo.anaconda.com/miniconda/)
 [![CUDA Version](https://img.shields.io/badge/CUDA-9.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![cuDNN Version](https://img.shields.io/badge/cuDNN-7.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-<!-- [![Theano Version](https://img.shields.io/badge/Theano-0.9.0-yellow.svg)](http://deeplearning.net/software/theano/) -->
+[![CUDA Version](https://img.shields.io/badge/CUDA-10.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-7.5-blue.svg)](https://developer.nvidia.com/cuda-downloads)
 [![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.12-yellow.svg)](https://www.tensorflow.org/)
 [![Keras Version](https://img.shields.io/badge/Keras-2.2.4-yellow.svg)](https://keras.io/)
-[![PyTorch Version](https://img.shields.io/badge/PyTorch-0.4.1-yellow.svg)](http://pytorch.org/)
-[![Chainer Version](https://img.shields.io/badge/Chainer-5.0.0-yellow.svg)](http://chainer.org/)
+[![PyTorch Version](https://img.shields.io/badge/PyTorch-1.0.1-yellow.svg)](http://pytorch.org/)
+[![Chainer Version](https://img.shields.io/badge/Chainer-5.2.0-yellow.svg)](http://chainer.org/)
 [![DMLC Version](https://img.shields.io/badge/xgboost-0.81-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
-[![DMLC Version](https://img.shields.io/badge/mxnet-1.3.0-yellow.svg)](https://mxnet.incubator.apache.org/)
+[![DMLC Version](https://img.shields.io/badge/mxnet-1.3.1-yellow.svg)](https://mxnet.incubator.apache.org/)
 
 
 ## General Message
@@ -93,8 +93,6 @@ at `Downloads` and all your projects are at `workspace`
 We have develop a working setup script for setting up your DL environment.
 This script is a runnable script 
 
-_This script currently does not support Caffe, Caffe2 and Torch. We will work on them. And will be available in near future._
-
 1. Clone the repo
 
     ```
@@ -109,6 +107,8 @@ _This script currently does not support Caffe, Caffe2 and Torch. We will work on
 
     # True if NVIDIA CUDA is installed.
     ENABLE_GPU=true
+# specify CUDA VERSION, 9 for CUDA 9, 10 for CUDA 10
+    CUDA_VERSION=9
 
     # True if you need Python, support from Anaconda
     ENABLE_PYTHON=true
@@ -128,12 +128,6 @@ _This script currently does not support Caffe, Caffe2 and Torch. We will work on
     ENABLE_KERAS=true
     # true to install DMLC packages (xgboost, mxnet)
     ENABLE_DMLC=false
-    # true to install Caffe
-    ENABLE_CAFFE=false
-    # true to install Caffe2
-    ENABLE_CAFFE2=false
-    # true to install Torch 7
-    ENABLE_TORCH=false
     ```
 
     You can customize this file that fits you needs. _For example, if you want to install all the libraries, just change `ENABLE_DL_ALL` to `true`._

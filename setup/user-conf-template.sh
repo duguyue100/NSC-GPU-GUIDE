@@ -2,6 +2,8 @@
 
 # True if NVIDIA CUDA is installed.
 ENABLE_GPU=true
+# specify CUDA VERSION, 9 for CUDA 9, 10 for CUDA 10
+CUDA_VERSION=9
 
 # True if you need Python, support from Anaconda
 ENABLE_PYTHON=true
@@ -21,9 +23,3 @@ ENABLE_CHAINER=false
 ENABLE_KERAS=true
 # true to install DMLC packages (xgboost, mxnet)
 ENABLE_DMLC=false
-# true to install Caffe
-ENABLE_CAFFE=false
-# true to install Caffe2
-ENABLE_CAFFE2=false
-# true to install Torch 7
-ENABLE_TORCH=false
