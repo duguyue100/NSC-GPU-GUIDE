@@ -42,6 +42,8 @@ maintenance.
 
 ### Planned Maintenance
 
+- March 21st, 2020: Software, hardware major changes.
+
 ## Contacts
 
 Yuhuang Hu  
