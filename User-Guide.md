@@ -1,16 +1,13 @@
 # Registered User Guide
 
-[![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-16.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
-[![Anaconda Version](https://img.shields.io/badge/Miniconda-4.5-orange.svg)](https://repo.anaconda.com/miniconda/)
-[![CUDA Version](https://img.shields.io/badge/CUDA-9.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![CUDA Version](https://img.shields.io/badge/CUDA-10.0-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![cuDNN Version](https://img.shields.io/badge/cuDNN-7.5-blue.svg)](https://developer.nvidia.com/cuda-downloads)
-[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-1.12-yellow.svg)](https://www.tensorflow.org/)
-[![Keras Version](https://img.shields.io/badge/Keras-2.2.4-yellow.svg)](https://keras.io/)
-[![PyTorch Version](https://img.shields.io/badge/PyTorch-1.0.1-yellow.svg)](http://pytorch.org/)
-[![Chainer Version](https://img.shields.io/badge/Chainer-5.2.0-yellow.svg)](http://chainer.org/)
-[![DMLC Version](https://img.shields.io/badge/xgboost-0.81-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
-[![DMLC Version](https://img.shields.io/badge/mxnet-1.3.1-yellow.svg)](https://mxnet.incubator.apache.org/)
+[![Ubuntu Version](https://img.shields.io/badge/Ubuntu%20Server-18.04-yellowgreen.svg)](https://launchpad.net/ubuntu/+mirror/releases.ubuntu.csg.uzh.ch-releases)
+[![Anaconda Version](https://img.shields.io/badge/Miniconda-4.8.2-orange.svg)](https://repo.anaconda.com/miniconda/)
+[![CUDA Version](https://img.shields.io/badge/CUDA-10.2-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![cuDNN Version](https://img.shields.io/badge/cuDNN-7.6.5-blue.svg)](https://developer.nvidia.com/cuda-downloads)
+[![TensorFlow Version](https://img.shields.io/badge/TensorFlow-2.2-yellow.svg)](https://www.tensorflow.org/)
+[![PyTorch Version](https://img.shields.io/badge/PyTorch-1.5-yellow.svg)](http://pytorch.org/)
+[![DMLC Version](https://img.shields.io/badge/xgboost-1.1.1-yellow.svg)](https://xgboost.readthedocs.io/en/latest/)
+[![DMLC Version](https://img.shields.io/badge/mxnet-1.6-yellow.svg)](https://mxnet.incubator.apache.org/)
 
 
 ## General Message
@@ -107,13 +104,9 @@ This script is a runnable script
 
     # True if NVIDIA CUDA is installed.
     ENABLE_GPU=true
-# specify CUDA VERSION, 9 for CUDA 9, 10 for CUDA 10
-    CUDA_VERSION=9
 
-    # True if you need Python, support from Anaconda
+    # True if you need Python, support from Miniconda
     ENABLE_PYTHON=true
-    # 2 is Python 2.7, 3 is Python 3.6
-    PYTHON_VERSION=2
 
     # True if you want to install all libraries locally
     ENABLE_DL_ALL=false
@@ -122,10 +115,6 @@ This script is a runnable script
     ENABLE_TENSORFLOW=true
     # true to install PyTorch
     ENABLE_PYTORCH=true
-    # true to install Chainer
-    ENABLE_CHAINER=false
-    # true to install Keras
-    ENABLE_KERAS=true
     # true to install DMLC packages (xgboost, mxnet)
     ENABLE_DMLC=false
     ```

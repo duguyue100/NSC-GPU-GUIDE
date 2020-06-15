@@ -29,12 +29,6 @@ fi
 #     rm -rf $HOME/.theano
 # fi
 
-# Remove Keras file
-echo -e "${RED}[MESSAGE] Removing Keras files...${COLOR_END}"
-if [ -d "$HOME/.keras" ]; then
-    rm -rf $HOME/.keras
-fi
-
 # Restore .bashrc file
 echo -e "${RED}[MESSAGE] Restoring .bashrc profile...${COLOR_END}"
 cp $HOME/.bashrc $HOME/.bashrc.bak

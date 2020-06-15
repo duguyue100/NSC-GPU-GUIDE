@@ -13,16 +13,12 @@ ENABLE_INSTALL=false
 DEBUG_MODE=false
 
 ENABLE_GPU=true
-CUDA_VERSION=9
 
 ENABLE_PYTHON=false
-PYTHON_VERSION=2
 
 ENABLE_DL_ALL=false
 ENABLE_TENSORFLOW=false
 ENABLE_PYTORCH=false
-ENABLE_KERAS=false
-ENABLE_CHAINER=false
 ENABLE_DMLC=false
 
 # Color Profile
@@ -61,8 +57,6 @@ fi
 if [ $ENABLE_DL_ALL = true ]; then
     ENABLE_TENSORFLOW=true
     ENABLE_PYTORCH=true
-    ENABLE_KERAS=true
-    ENABLE_CHAINER=true
     ENABLE_DMLC=true
 fi
 
@@ -70,18 +64,12 @@ fi
 if [ $ENABLE_PYTHON = false ]; then
     ENABLE_TENSORFLOW=false
     ENABLE_PYTORCH=false
-    ENABLE_KERAS=false
-    ENABLE_CHAINER=false
     ENABLE_DMLC=false
 fi
 
 # get miniconda link
 if [ $ENABLE_PYTHON = true ]; then
-    if [ $PYTHON_VERSION = 2 ]; then
-        CONDA_URL="https://repo.anaconda.com/miniconda/Miniconda2-4.5.12-Linux-x86_64.sh"
-    elif [ $PYTHON_VERSION = 3 ]; then
-        CONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-4.5.4-Linux-x86_64.sh"
-    fi
+    CONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-py38_4.8.2-Linux-x86_64.sh"
 fi
 
 # setup download link to softwares
@@ -89,31 +77,19 @@ if [ $ENABLE_GPU = true ]; then
     # GPU options
     if [ $ENABLE_PYTHON = true ]; then
         TENSORFLOW_URL="tensorflow-gpu"
-
-        if [ $CUDA_VERSION = 9 ]; then
-            PYTORCH_URL="torch"
-            CUPY_URL="cupy-cuda90"
-            MXNET_URL="mxnet-cu90"
-        elif [ $CUDA_VERSION = 10 ]; then
-            if [ $PYTHON_VERSION = 2 ]; then
-                PYTORCH_URL="https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp27-cp27mu-linux_x86_64.whl"
-            elif [ $PYTHON_VERSION = 3 ]; then
-                PYTORCH_URL="https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp36-cp36m-linux_x86_64.whl"
-            fi
-            CUPY_URL="cupy-cuda100"
-            MXNET_URL="mxnet-cu100"
-        fi
+        PYTORCH_URL="torch"
+        TORCHVISION_URL="torchvision"
+        CUPY_URL="cupy-cuda102"
+        MXNET_URL="mxnet-cu102"
     fi
 elif [ $ENABLE_GPU = false ]; then
     # CPU options
     if [ $ENABLE_PYTHON = true ]; then
         TENSORFLOW_URL="tensorflow"
 
-        if [ $PYTHON_VERSION = 2 ]; then
-            PYTORCH_URL="https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp27-cp27mu-linux_x86_64.whl"
-        elif [ $PYTHON_VERSION = 3 ]; then
-            PYTORCH_URL="https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp36-cp36m-linux_x86_64.whl"
-        fi
+        PYTORCH_URL="torch==1.5.0+cpu"
+        TORCHVISION_URL="torchvision==0.6.0+cpu"
+        TORCH_CPU_URL="https://download.pytorch.org/whl/torch_stable.html"
     fi
 fi 
 
@@ -173,15 +149,9 @@ setup_env()
     fi
 
     if [ $ENABLE_GPU = true ]; then
-        if [ $CUDA_VERSION = 9 ]; then
-            echo 'export PATH=$PATH:/usr/local/cuda/bin' >> $HOME/.bashrc
-            echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64' >> $HOME/.bashrc
-            echo 'export CUDA_ROOT=/usr/local/cuda' >> $HOME/.bashrc
-        elif [ $CUDA_VERSION = 10 ]; then
-            echo 'export PATH=$PATH:/usr/local/cuda-10.0/bin' >> $HOME/.bashrc
-            echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64' >> $HOME/.bashrc
-            echo 'export CUDA_ROOT=/usr/local/cuda-10.0' >> $HOME/.bashrc
-        fi
+        echo 'export PATH=$PATH:/usr/local/cuda/bin' >> $HOME/.bashrc
+        echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64' >> $HOME/.bashrc
+        echo 'export CUDA_ROOT=/usr/local/cuda' >> $HOME/.bashrc
     fi
     echo -e "${CYAN}[MESSAGE] Installation environment setup completed.${COLOR_END}"
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
@@ -217,12 +187,9 @@ config_dl()
     echo -e "${CYAN}[MESSAGE] Installing Deep Learning Libraries${COLOR_END}"
     if [ $ENABLE_PYTHON = true ]; then
         echo "[MESSAGE] Installing common packages for Python..."
-        if [ $PYTHON_VERSION = 2 ]; then
-            $CONDA_BIN/pip install h5py 
-            $CONDA_BIN/conda install -y pydot graphviz
-        elif [ $PYTHON_VERSION = 3 ]; then
-            $CONDA_BIN/pip install h5py 
-        fi
+
+        $CONDA_BIN/pip install h5py 
+
         echo "[MESSAGE] Common packages for Python Installed..."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
     fi
@@ -238,30 +205,15 @@ config_dl()
     # pytorch
     if [ $ENABLE_PYTORCH = true ]; then
         echo "[MESSAGE] Installing PyTorch..."
-        $CONDA_BIN/pip install $PYTORCH_URL
-        $CONDA_BIN/pip install torchvision
-        echo "[MESSAGE] PyTorch installed."
-    echo -e "${RED}--------------------------------------------------${COLOR_END}"
-    fi
 
-    # Keras
-    if [ $ENABLE_KERAS = true ]; then
-        echo "[MESSAGE] Installing Keras..."
-        $CONDA_BIN/pip install Keras
-        mkdir $HOME/.keras
-        cp $USER_DIR/extras/keras/keras-tensorflow.json $HOME/.keras/keras.json
-        echo "[MESSAGE] Keras Installed."
-    echo -e "${RED}--------------------------------------------------${COLOR_END}"
-    fi
-
-    # Chainer
-    if [ $ENABLE_CHAINER = true ]; then
-        echo "[MESSAGE] Installing Chainer..."
-        $CONDA_BIN/pip install chainer
         if [ $ENABLE_GPU = true ]; then
-            $CONDA_BIN/pip install CUPY_URL
+            $CONDA_BIN/pip install $PYTORCH_URL
+            $CONDA_BIN/pip install $TORCHVISION_URL
+        else
+            $CONDA_BIN/pip install $PYTORCH_URL -f $TORCH_CPU_URL
+            $CONDA_BIN/pip install $TORCHVISION_URL -f $TORCH_CPU_URL
         fi
-        echo "[MESSAGE] Chainer Installed."
+        echo "[MESSAGE] PyTorch installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
     fi
 
@@ -276,17 +228,7 @@ config_dl()
         echo "[MESSAGE] DMLC packages Installed."
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
     fi
-
-    # TensorBoard
-    if [ $ENABLE_TENSORFLOW = false ]; then
-        $CONDA_BIN/pip install tensorflow-tensorboard
-    fi
-    if [ $ENABLE_PYTORCH = true ]; then
-        $CONDA_BIN/pip install tensorboard-pytorch
-    fi
     
-    # Torch
-    # Currently not supported
     echo -e "${CYAN}[MESSAGE] Selected Deep Learning Libraries are installed.${COLOR_END}"
     echo -e "${RED}--------------------------------------------------${COLOR_END}"
 }
