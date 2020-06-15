@@ -114,8 +114,6 @@ print_config()
     echo -e "${RED}[MESSAGE] Deep Learning Libraries to install:${COLOR_END}"
     echo "[MESSAGE] TensorFlow                      : $ENABLE_TENSORFLOW"
     echo "[MESSAGE] PyTorch                         : $ENABLE_PYTORCH"
-    echo "[MESSAGE] Keras                           : $ENABLE_KERAS"
-    echo "[MESSAGE] Chainer                         : $ENABLE_CHAINER"
     echo "[MESSAGE] DMLC (including xgboost, mxnet) : $ENABLE_DMLC"
 
     # waiting for installation
